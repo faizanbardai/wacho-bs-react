@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/wacho-bs-react/static/css/main.d1b05096.chunk.css",
+    "main.js": "/wacho-bs-react/static/js/main.6e196d1e.chunk.js",
+    "main.js.map": "/wacho-bs-react/static/js/main.6e196d1e.chunk.js.map",
+    "runtime-main.js": "/wacho-bs-react/static/js/runtime-main.79b3f8fc.js",
+    "runtime-main.js.map": "/wacho-bs-react/static/js/runtime-main.79b3f8fc.js.map",
+    "static/js/2.f3011e29.chunk.js": "/wacho-bs-react/static/js/2.f3011e29.chunk.js",
+    "static/js/2.f3011e29.chunk.js.map": "/wacho-bs-react/static/js/2.f3011e29.chunk.js.map",
+    "index.html": "/wacho-bs-react/index.html",
+    "precache-manifest.a5d4cd40d1392f4fda336117e35bb58c.js": "/wacho-bs-react/precache-manifest.a5d4cd40d1392f4fda336117e35bb58c.js",
+    "service-worker.js": "/wacho-bs-react/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/wacho-bs-react/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.f3011e29.chunk.js.LICENSE": "/wacho-bs-react/static/js/2.f3011e29.chunk.js.LICENSE",
+    "static/media/logo.svg": "/wacho-bs-react/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.79b3f8fc.js",
+    "static/js/2.f3011e29.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.6e196d1e.chunk.js"
+  ]
+}
