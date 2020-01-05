@@ -1,5 +1,7 @@
 import React from 'react';
 import HeaderLoopVideo from '../vid/header-loop.mp4'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVolumeOff } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
     return (
@@ -19,9 +21,10 @@ export default function Header() {
               <div
                 className="display-4"
                 id="playPauseIcon"
-                onclick="playPauseAudio()"
+                // onClick="playPauseAudio()"
               >
-                <i className="fa fa-volume-off"></i>
+                {/* <i className="fa fa-volume-off"></i> */}
+                <FontAwesomeIcon icon={faVolumeOff} />
               </div>
               <h1 className="display-3">Hautain Wine</h1>
               <p className="lead mb-0">
