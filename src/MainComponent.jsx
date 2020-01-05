@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
+import Products from "./Components/Products";
+import wine1 from "./img/p1.jpg";
+import wine2 from "./img/p2.jpg";
+import wine3 from "./img/p3.jpg";
+import wine4 from "./img/p4.jpg";
+import wine5 from "./img/p5.jpg";
 
 export default class MainComponent extends Component {
   constructor(props) {
@@ -13,7 +19,8 @@ export default class MainComponent extends Component {
           price: 0.01,
           qty: 0,
           title: "Rice Pitcher",
-          image: "./img/p1.jpg",
+          image: wine1,
+          // image: "./img/p1.jpg",
           variety: "Rkatsiteli",
           color: "Dark brown with golden color",
           aroma: "Meadow flowers",
@@ -27,7 +34,7 @@ export default class MainComponent extends Component {
           price: 0.02,
           qty: 0,
           title: "Green pitcher",
-          image: "./img/p2.jpg",
+          image: wine2,
           variety: "Green",
           color: "Beige, green",
           aroma: "Ripe fruit and various stems",
@@ -41,7 +48,7 @@ export default class MainComponent extends Component {
           price: 0.03,
           qty: 0,
           title: "Pitcher pitcher",
-          image: "./img/p3.jpg",
+          image: wine3,
           variety: "Khikhvi",
           color: "Green tint, golden",
           aroma: "Meadow flowers",
@@ -55,7 +62,7 @@ export default class MainComponent extends Component {
           price: 0.04,
           qty: 0,
           title: "Kiss the pitcher",
-          image: "./img/p4.jpg",
+          image: wine4,
           variety: "Kiss",
           color: "Dark brown",
           aroma: "gentle fruity and fruity aroma",
@@ -69,7 +76,7 @@ export default class MainComponent extends Component {
           price: 0.05,
           qty: 0,
           title: "Saperavi pitcher",
-          image: "./img/p5.jpg",
+          image: wine5,
           variety: "Saperavi",
           color: "Purple, dark pomegranate",
           aroma: "cherry, blackberry, forest berry, plum",
@@ -82,11 +89,12 @@ export default class MainComponent extends Component {
     };
   }
   render() {
-    let {cartCount} = this.state;
+    let { cartCount, products } = this.state;
     return (
       <div>
         <Header />
-        <Navigation cartCount={cartCount}/>
+        <Navigation cartCount={cartCount} />
+        <Products products={products} />
       </div>
     );
   }
