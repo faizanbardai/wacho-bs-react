@@ -22,7 +22,7 @@ export default class Navigation extends Component {
           </Nav>
           <Button variant="outline-info">
             <FontAwesomeIcon icon={faCartPlus} />
-            <Badge pill variant="primary" className="ml-1">5</Badge>
+    <Badge pill variant="primary" className="ml-1">{this.props.cartCount}</Badge>
           </Button>
         </Navbar.Collapse>
       </Navbar>

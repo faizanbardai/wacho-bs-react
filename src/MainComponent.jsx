@@ -6,6 +6,7 @@ export default class MainComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      cartCount: 0,
       products: [
         {
           id: "p001",
@@ -81,10 +82,11 @@ export default class MainComponent extends Component {
     };
   }
   render() {
+    let {cartCount} = this.state;
     return (
       <div>
         <Header />
-        <Navigation />
+        <Navigation cartCount={cartCount}/>
       </div>
     );
   }
