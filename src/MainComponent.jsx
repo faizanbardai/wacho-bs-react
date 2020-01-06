@@ -8,6 +8,7 @@ import wine3 from "./img/p3.jpg";
 import wine4 from "./img/p4.jpg";
 import wine5 from "./img/p5.jpg";
 import Checkout from "./Components/Checkout";
+import Footer from "./Components/Footer";
 
 export default class MainComponent extends Component {
   constructor(props) {
@@ -97,6 +98,7 @@ export default class MainComponent extends Component {
         <Navigation cartCount={cartCount} />
         <Products products={products} />
         <Checkout />
+        <Footer />
       </div>
     );
   }

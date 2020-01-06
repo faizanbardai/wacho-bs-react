@@ -15,10 +15,10 @@ import wine1 from "../img/p1.jpg";
 export default class Checkout extends Component {
   render() {
     return (
-      <Container fluid id="checkout" className="mb-3">
+      <Container id="checkout" className="mb-3">
         <Row>
-          <Col xs={12} md={8} className="d-flex justify-content-start">
-            <Card className="col-6">
+          <Col xs={12} md={8} className="d-flex justify-content-around">
+            <Card className="col-4">
               <Card.Body>
                 <Card.Header>
                   <Row className="d-flex justify-content-between">
@@ -43,7 +43,7 @@ export default class Checkout extends Component {
                 €0.22 x 2 = €0.44
               </Card.Footer>
             </Card>
-            <Card className="col-6">
+            {/* <Card className="col-4">
               <Card.Body>
                 <Card.Header>
                   <Row className="d-flex justify-content-between">
@@ -64,28 +64,44 @@ export default class Checkout extends Component {
               <Card.Footer className="text-muted text-right">
                 €0.22 x 2 = €0.44
               </Card.Footer>
-            </Card>
+            </Card> */}
           </Col>
 
           <Col xs={12} md={4}>
             <Card>
               <Card.Body className="p-0 m-2">
                 <PayPalButton
-                  amount="0.02"
-                  // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
-                  onSuccess={details => {
-                    alert(
-                      "Transaction completed by " +
-                        details.payer.name.given_name
-                    );
+                  createOrder={(data, actions) => {
+                    return actions.order.create({
+                      purchase_units: [
+                        {
+                          amount: {
+                            currency_code: "USD",
+                            value: "0.01"
+                          }
+                        }
+                      ]
+                      // application_context: {
+                      //   shipping_preference: "NO_SHIPPING" // default is "GET_FROM_FILE"
+                      // }
+                    });
+                  }}
+                  onApprove={(data, actions) => {
+                    // Capture the funds from the transaction
+                    return actions.order.capture().then(function(details) {
+                      // Show a success message to your buyer
+                      alert(
+                        "Transaction completed by " +
+                          details.payer.name.given_name
+                      );
 
-                    // OPTIONAL: Call your server to save the transaction
-                    return fetch("/paypal-transaction-complete", {
-                      method: "post",
-                      body: JSON.stringify({
-                        // orderID: data.orderID
-                        orderID: 501
-                      })
+                      // OPTIONAL: Call your server to save the transaction
+                      return fetch("/paypal-transaction-complete", {
+                        method: "post",
+                        body: JSON.stringify({
+                          orderID: data.orderID
+                        })
+                      });
                     });
                   }}
                 />
