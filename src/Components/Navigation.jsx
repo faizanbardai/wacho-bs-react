@@ -20,9 +20,11 @@ export default class Navigation extends Component {
               <NavDropdown.Item href="#my-team">My team</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Button variant="outline-info">
+          <Button href="#checkout" variant="outline-info">
             <FontAwesomeIcon icon={faCartPlus} />
-    <Badge pill variant="primary" className="ml-1">{this.props.cartCount}</Badge>
+            <Badge pill variant="primary" className="ml-1">
+              {this.props.cartCount}
+            </Badge>
           </Button>
         </Navbar.Collapse>
       </Navbar>
