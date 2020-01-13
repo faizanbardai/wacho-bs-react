@@ -110,16 +110,19 @@ export default class MainComponent extends Component {
     this.setState({ products });
   };
   updateTotal = () => {
-    const value = this.state.products.reduce((acc, product) => acc = acc + product.price * product.qty,0);
-    this.setState({amountToCharge:value})
+    const value = this.state.products.reduce(
+      (acc, product) => (acc = acc + product.price * product.qty),
+      0
+    );
+    this.setState({ amountToCharge: value });
   };
 
   render() {
-    let { cartCount, products, amountToCharge } = this.state;
+    let { products, amountToCharge } = this.state;
     return (
       <div>
         <Header />
-        <Navigation cartCount={cartCount} />
+        <Navigation />
         <Products
           products={products}
           addProductToCart={this.addProductToCart}
@@ -127,7 +130,6 @@ export default class MainComponent extends Component {
           decreaseQty={this.decreaseQty}
           amountToCharge={amountToCharge}
         />
-
         <TextSection />
         <Footer />
       </div>

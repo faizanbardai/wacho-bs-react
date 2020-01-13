@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Nav, Navbar, NavDropdown, Button, Badge } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 export default class Navigation extends Component {
   render() {
@@ -20,12 +18,6 @@ export default class Navigation extends Component {
               <NavDropdown.Item href="#my-team">My team</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Button href="#checkout" variant="outline-info">
-            <FontAwesomeIcon icon={faCartPlus} />
-            <Badge pill variant="primary" className="ml-1">
-              {this.props.cartCount}
-            </Badge>
-          </Button>
         </Navbar.Collapse>
       </Navbar>
     );
