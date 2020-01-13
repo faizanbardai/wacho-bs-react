@@ -13,7 +13,7 @@ export default class Products extends Component {
         </div>
         {/* Products */}
         <section id="products" className="container">
-          <div className="row wine-products d-flex justify-content-around">
+          <div className="row wine-products vh-100 d-flex justify-content-around">
             {products.map(product => (
               <div key={product.id} className="col-6 col-md-3 col-lg-2">
                 <div className="card mb-3">
