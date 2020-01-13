@@ -101,12 +101,14 @@ export default class MainComponent extends Component {
     const products = this.state.products;
     const product = products.find(product => product.id === productID);
     product.qty++;
+    this.updateTotal();
     this.setState({ products });
   };
   decreaseQty = productID => {
     const products = this.state.products;
     const product = products.find(product => product.id === productID);
     product.qty--;
+    this.updateTotal();
     this.setState({ products });
   };
   updateTotal = () => {

@@ -3,15 +3,14 @@ import parallax1 from "../img/parallax1.jpg";
 
 export default function TextSection() {
   return (
-    <div id="philosophy">
+    <div >
       <div
-        
         className="vh-100 d-flex parallax justify-content-center align-items-center"
         style={{ backgroundImage: "url(" + parallax1 + ")" }}
       >
         <h2 className="text-white">PHILOSOPHY</h2>
       </div>
-      <section className="container py-3">
+      <section className="container py-3" id="philosophy">
         <div className="row">
           <div className="col-12 col-sm-4 m-auto">
             <img

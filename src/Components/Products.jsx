@@ -18,11 +18,11 @@ export default class Products extends Component {
     return (
       <>
         {/* Be smart text */}
-        <div className="handwritten shadow-lg p-3 my-5 bg-white rounded text-center display-4">
+        <div id="products" className="handwritten shadow-lg p-3 my-5 bg-white rounded text-center display-4">
           Be smart, just drink the best and fuck the rest!
         </div>
         {/* Products */}
-        <section id="products" className="container mb-3">
+        <section className="container mb-3">
           <div className="row wine-products d-flex justify-content-center">
             {products.map(product => (
               <div key={product.id} className="col-12 col-md-3 pb-2">
