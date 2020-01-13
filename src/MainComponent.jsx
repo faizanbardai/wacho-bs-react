@@ -9,6 +9,7 @@ import wine4 from "./img/p4.jpg";
 import wine5 from "./img/p5.jpg";
 import Checkout from "./Components/Checkout";
 import Footer from "./Components/Footer";
+import TextSection from "./Components/TextSection";
 
 export default class MainComponent extends Component {
   constructor(props) {
@@ -117,6 +118,7 @@ export default class MainComponent extends Component {
             productsInCart={productsInCart}
           />
         )}
+        <TextSection />
         <Footer />
       </div>
     );
