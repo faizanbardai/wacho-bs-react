@@ -11,65 +11,50 @@ import {
   Button
 } from "react-bootstrap";
 import wine1 from "../img/p1.jpg";
+import { Badge } from "react-bootstrap";
 
 export default class Checkout extends Component {
   render() {
+    const { amountToCharge, productsInCart } = this.props;
     return (
       <Container id="checkout" className="mb-3">
-        <Row>
-          <Col xs={12} md={8} className="d-flex justify-content-around">
-            <Card className="col-4">
-              <Card.Body>
-                <Card.Header>
-                  <Row className="d-flex justify-content-between">
-                    <Col>
-                      <ButtonToolbar className="d-flex flex-column">
-                        <ButtonGroup>
-                          <Button>+</Button>
-                          <Button>2</Button>
-                          <Button>-</Button>
-                        </ButtonGroup>
-                      </ButtonToolbar>
-                    </Col>
-                    {/* <Col>
-                      <spam>€20.22</spam>
-                    </Col> */}
-                  </Row>
-                </Card.Header>
-                <Card.Title>Rice Pitcher</Card.Title>
-                <Image src={wine1} style={{ width: "100%" }} />
-              </Card.Body>
-              <Card.Footer className="text-muted text-right">
-                €0.22 x 2 = €0.44
-              </Card.Footer>
-            </Card>
-            {/* <Card className="col-4">
-              <Card.Body>
-                <Card.Header>
-                  <Row className="d-flex justify-content-between">
-                    <Col>
-                      <ButtonToolbar className="d-flex flex-column">
-                        <ButtonGroup>
-                          <Button>+</Button>
-                          <Button>2</Button>
-                          <Button>-</Button>
-                        </ButtonGroup>
-                      </ButtonToolbar>
-                    </Col>
-                  </Row>
-                </Card.Header>
-                <Card.Title>Rice Pitcher</Card.Title>
-                <Image src={wine1} style={{ width: "100%" }} />
-              </Card.Body>
-              <Card.Footer className="text-muted text-right">
-                €0.22 x 2 = €0.44
-              </Card.Footer>
-            </Card> */}
+        <Row className="d-flex justify-content-around">
+          <Col xs={12} md={8}>
+            <Row>
+              {productsInCart.map(product => (
+                <Col xs={6} className="mb-2">
+                  <Card>
+                    <Card.Header>
+                      <Row className="d-flex justify-content-between">
+                        <Col>
+                          <ButtonToolbar className="d-flex flex-column">
+                            <ButtonGroup>
+                              <Button>+</Button>
+                              <Button>{product.qty}</Button>
+                              <Button>-</Button>
+                            </ButtonGroup>
+                          </ButtonToolbar>
+                        </Col>
+                      </Row>
+                    </Card.Header>
+                    <Card.Body>
+                      <Card.Title>{product.title}</Card.Title>
+                    </Card.Body>
+                    <Image src={wine1} style={{ width: "100%" }} />
+                    <Card.Footer className="text-muted text-right px-2">
+                      €0.22 x 2 = €0.44
+                    </Card.Footer>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
           </Col>
-
           <Col xs={12} md={4}>
             <Card>
-              <Card.Body className="p-0 m-2">
+              <Card.Body className="p-0 m-2 text-center">
+                <Badge pill variant="primary" className="my-2">
+                  € 22.22
+                </Badge>
                 <PayPalButton
                   createOrder={(data, actions) => {
                     // This function sets up the details of the transaction, including the amount and line item details.
@@ -77,7 +62,8 @@ export default class Checkout extends Component {
                       purchase_units: [
                         {
                           amount: {
-                            value: "0.02"
+                            // value: "0.02"
+                            value: amountToCharge
                           }
                         }
                       ]

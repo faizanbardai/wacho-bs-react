@@ -4,7 +4,7 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default class Products extends Component {
   render() {
-    let { products } = this.props;
+    let { products, addProductToCart } = this.props;
     return (
       <>
         {/* Be smart text */}
@@ -18,7 +18,12 @@ export default class Products extends Component {
               <div key={product.id} className="col-6 col-md-3 col-lg-2">
                 <div className="card mb-3">
                   <div className="ml-auto">
-                    <button className="btn btn-outline-info btn-sm rounded-circle m-2">
+                    <button
+                      onClick={() => {
+                        addProductToCart(product.id)
+                      }}
+                      className="btn btn-outline-info btn-sm rounded-circle m-2"
+                    >
                       <FontAwesomeIcon icon={faCartPlus} />
                     </button>
                   </div>

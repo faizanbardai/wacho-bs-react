@@ -6,7 +6,7 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 export default class Navigation extends Component {
   render() {
     return (
-      <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+      <Navbar bg="dark" variant="dark" expand="md" sticky="top">
         <Navbar.Brand href="/">Wines N’ Roses</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

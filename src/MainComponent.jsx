@@ -15,14 +15,15 @@ export default class MainComponent extends Component {
     super(props);
     this.state = {
       cartCount: 0,
+      productsInCart: [],
+      amountToCharge: 0,
       products: [
         {
           id: "p001",
-          price: 0.01,
+          price: 1.99,
           qty: 0,
           title: "Rice Pitcher",
           image: wine1,
-          // image: "./img/p1.jpg",
           variety: "Rkatsiteli",
           color: "Dark brown with golden color",
           aroma: "Meadow flowers",
@@ -33,7 +34,7 @@ export default class MainComponent extends Component {
         },
         {
           id: "p002",
-          price: 0.02,
+          price: 2.99876,
           qty: 0,
           title: "Green pitcher",
           image: wine2,
@@ -47,7 +48,7 @@ export default class MainComponent extends Component {
         },
         {
           id: "p003",
-          price: 0.03,
+          price: 3.99,
           qty: 0,
           title: "Pitcher pitcher",
           image: wine3,
@@ -61,7 +62,7 @@ export default class MainComponent extends Component {
         },
         {
           id: "p004",
-          price: 0.04,
+          price: 4.99,
           qty: 0,
           title: "Kiss the pitcher",
           image: wine4,
@@ -75,7 +76,7 @@ export default class MainComponent extends Component {
         },
         {
           id: "p005",
-          price: 0.05,
+          price: 5.99,
           qty: 0,
           title: "Saperavi pitcher",
           image: wine5,
@@ -90,14 +91,32 @@ export default class MainComponent extends Component {
       ]
     };
   }
+  addProductToCart = productID => {
+    const product = this.state.products.find(
+      product => product.id === productID
+    );
+    product.qty++;
+    this.state.productsInCart.push(product);
+    this.setState({
+      products: this.state.products.filter(product => product.id !== productID)
+    });
+  };
   render() {
-    let { cartCount, products } = this.state;
+    let { cartCount, products, amountToCharge, productsInCart } = this.state;
     return (
       <div>
         <Header />
         <Navigation cartCount={cartCount} />
-        <Products products={products} />
-        <Checkout />
+        <Products
+          products={products}
+          addProductToCart={this.addProductToCart}
+        />
+        {productsInCart.length && (
+          <Checkout
+            amountToCharge={amountToCharge}
+            productsInCart={productsInCart}
+          />
+        )}
         <Footer />
       </div>
     );
