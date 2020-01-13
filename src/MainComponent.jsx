@@ -7,7 +7,6 @@ import wine2 from "./img/p2.jpg";
 import wine3 from "./img/p3.jpg";
 import wine4 from "./img/p4.jpg";
 import wine5 from "./img/p5.jpg";
-import Checkout from "./Components/Checkout";
 import Footer from "./Components/Footer";
 import TextSection from "./Components/TextSection";
 
@@ -16,7 +15,6 @@ export default class MainComponent extends Component {
     super(props);
     this.state = {
       cartCount: 0,
-      productsInCart: [],
       amountToCharge: 0,
       products: [
         {
@@ -93,17 +91,31 @@ export default class MainComponent extends Component {
     };
   }
   addProductToCart = productID => {
-    const product = this.state.products.find(
-      product => product.id === productID
-    );
+    const products = this.state.products;
+    const product = products.find(product => product.id === productID);
     product.qty++;
-    this.state.productsInCart.push(product);
-    this.setState({
-      products: this.state.products.filter(product => product.id !== productID)
-    });
+    this.updateTotal();
+    this.setState({ products });
   };
+  increaseQty = productID => {
+    const products = this.state.products;
+    const product = products.find(product => product.id === productID);
+    product.qty++;
+    this.setState({ products });
+  };
+  decreaseQty = productID => {
+    const products = this.state.products;
+    const product = products.find(product => product.id === productID);
+    product.qty--;
+    this.setState({ products });
+  };
+  updateTotal = () => {
+    const value = this.state.products.reduce((acc, product) => acc = acc + product.price * product.qty,0);
+    this.setState({amountToCharge:value})
+  };
+
   render() {
-    let { cartCount, products, amountToCharge, productsInCart } = this.state;
+    let { cartCount, products, amountToCharge } = this.state;
     return (
       <div>
         <Header />
@@ -111,13 +123,11 @@ export default class MainComponent extends Component {
         <Products
           products={products}
           addProductToCart={this.addProductToCart}
+          increaseQty={this.increaseQty}
+          decreaseQty={this.decreaseQty}
+          amountToCharge={amountToCharge}
         />
-        {productsInCart.length && (
-          <Checkout
-            amountToCharge={amountToCharge}
-            productsInCart={productsInCart}
-          />
-        )}
+
         <TextSection />
         <Footer />
       </div>
