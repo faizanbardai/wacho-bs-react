@@ -65,13 +65,13 @@ export default class Products extends Component {
                   <Card.Footer className="text-muted">
                     € {product.price}{" "}
                     {product.qty > 0 && (
-                      <spam>
+                      <span>
                         {" "}
                         x {product.qty} ={" "}
                         <Badge pill variant="info">
                           € {product.price * product.qty}
                         </Badge>
-                      </spam>
+                      </span>
                     )}
                   </Card.Footer>
                 </Card>
