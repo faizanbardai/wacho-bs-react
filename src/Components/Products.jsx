@@ -18,14 +18,17 @@ export default class Products extends Component {
     return (
       <>
         {/* Be smart text */}
-        <div id="products" className="handwritten shadow-lg p-3 my-5 bg-white rounded text-center display-4">
+        <div
+          id="products"
+          className="handwritten shadow-lg p-3 my-5 bg-white rounded text-center display-4"
+        >
           Be smart, just drink the best and fuck the rest!
         </div>
         {/* Products */}
         <section className="container mb-3">
           <div className="row wine-products d-flex justify-content-center">
             {products.map(product => (
-              <div key={product.id} className="col-12 col-md-3 pb-2">
+              <div key={product.id} className="col-6 col-md-3 pb-2">
                 <Card>
                   <Card.Header>{product.title}</Card.Header>
                   <div className="ml-auto">
@@ -62,7 +65,7 @@ export default class Products extends Component {
                   </div>
                   <Card.Img variant="top" src={product.image} />
                   <Card.Body></Card.Body>
-                  <Card.Footer className="text-muted">
+                  <Card.Footer className="text-muted px-2">
                     € {product.price}{" "}
                     {product.qty > 0 && (
                       <span>
@@ -112,14 +115,14 @@ export default class Products extends Component {
                 </div> */}
               </div>
             ))}
+            {amountToCharge > 0 && (
+              <Checkout
+                amountToCharge={amountToCharge}
+                productsInCart={productsInCart}
+              />
+            )}
           </div>
         </section>
-        {amountToCharge > 0 && (
-          <Checkout
-            amountToCharge={amountToCharge}
-            productsInCart={productsInCart}
-          />
-        )}
       </>
     );
   }

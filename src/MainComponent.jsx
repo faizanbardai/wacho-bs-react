@@ -14,8 +14,8 @@ export default class MainComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cartCount: 0,
       amountToCharge: 0,
+      lang: "en",
       products: [
         {
           id: "p001",
@@ -33,7 +33,7 @@ export default class MainComponent extends Component {
         },
         {
           id: "p002",
-          price: 2.99876,
+          price: 2.99,
           qty: 0,
           title: "Green pitcher",
           image: wine2,
@@ -90,6 +90,7 @@ export default class MainComponent extends Component {
       ]
     };
   }
+
   addProductToCart = productID => {
     const products = this.state.products;
     const product = products.find(product => product.id === productID);
@@ -120,7 +121,7 @@ export default class MainComponent extends Component {
   };
 
   render() {
-    let { products, amountToCharge } = this.state;
+    let { products, amountToCharge, lang } = this.state;
     return (
       <div>
         <Header />
@@ -132,7 +133,7 @@ export default class MainComponent extends Component {
           decreaseQty={this.decreaseQty}
           amountToCharge={amountToCharge}
         />
-        <TextSection />
+        <TextSection lang={lang}/>
         <Footer />
       </div>
     );
