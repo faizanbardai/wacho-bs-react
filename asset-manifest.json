@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/wacho-bs-react/static/css/main.d1b05096.chunk.css",
-    "main.js": "/wacho-bs-react/static/js/main.6e196d1e.chunk.js",
-    "main.js.map": "/wacho-bs-react/static/js/main.6e196d1e.chunk.js.map",
+    "main.js": "/wacho-bs-react/static/js/main.48d9c13b.chunk.js",
+    "main.js.map": "/wacho-bs-react/static/js/main.48d9c13b.chunk.js.map",
     "runtime-main.js": "/wacho-bs-react/static/js/runtime-main.79b3f8fc.js",
     "runtime-main.js.map": "/wacho-bs-react/static/js/runtime-main.79b3f8fc.js.map",
-    "static/js/2.f3011e29.chunk.js": "/wacho-bs-react/static/js/2.f3011e29.chunk.js",
-    "static/js/2.f3011e29.chunk.js.map": "/wacho-bs-react/static/js/2.f3011e29.chunk.js.map",
+    "static/js/2.acbfaf14.chunk.js": "/wacho-bs-react/static/js/2.acbfaf14.chunk.js",
+    "static/js/2.acbfaf14.chunk.js.map": "/wacho-bs-react/static/js/2.acbfaf14.chunk.js.map",
     "index.html": "/wacho-bs-react/index.html",
-    "precache-manifest.a5d4cd40d1392f4fda336117e35bb58c.js": "/wacho-bs-react/precache-manifest.a5d4cd40d1392f4fda336117e35bb58c.js",
+    "precache-manifest.1ef11febd4a91aeb4045ec65dd873e7e.js": "/wacho-bs-react/precache-manifest.1ef11febd4a91aeb4045ec65dd873e7e.js",
     "service-worker.js": "/wacho-bs-react/service-worker.js",
-    "static/css/main.d1b05096.chunk.css.map": "/wacho-bs-react/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.f3011e29.chunk.js.LICENSE": "/wacho-bs-react/static/js/2.f3011e29.chunk.js.LICENSE",
-    "static/media/logo.svg": "/wacho-bs-react/static/media/logo.5d5d9eef.svg"
+    "static/js/2.acbfaf14.chunk.js.LICENSE": "/wacho-bs-react/static/js/2.acbfaf14.chunk.js.LICENSE",
+    "static/media/header-loop.mp4": "/wacho-bs-react/static/media/header-loop.f3bd3584.mp4",
+    "static/media/p1.jpg": "/wacho-bs-react/static/media/p1.6f5bf8f3.jpg",
+    "static/media/p2.jpg": "/wacho-bs-react/static/media/p2.e9f95fde.jpg",
+    "static/media/p3.jpg": "/wacho-bs-react/static/media/p3.43fd4378.jpg",
+    "static/media/p4.jpg": "/wacho-bs-react/static/media/p4.c0d39414.jpg",
+    "static/media/p5.jpg": "/wacho-bs-react/static/media/p5.af08f417.jpg",
+    "static/media/parallax1.jpg": "/wacho-bs-react/static/media/parallax1.433a88c8.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.79b3f8fc.js",
-    "static/js/2.f3011e29.chunk.js",
-    "static/css/main.d1b05096.chunk.css",
-    "static/js/main.6e196d1e.chunk.js"
+    "static/js/2.acbfaf14.chunk.js",
+    "static/js/main.48d9c13b.chunk.js"
   ]
 }
