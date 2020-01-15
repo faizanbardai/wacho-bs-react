@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
 import Checkout from "./Checkout";
 
@@ -30,7 +30,7 @@ export default class Products extends Component {
             {products.map(product => (
               <div key={product.id} className="col-6 col-md-3 pb-2">
                 <Card>
-                  <Card.Header>{product.title}</Card.Header>
+                  {/* <Card.Header>{product.title}</Card.Header> */}
                   <div className="ml-auto">
                     {product.qty > 0 && (
                       <>
@@ -64,18 +64,22 @@ export default class Products extends Component {
                     )}
                   </div>
                   <Card.Img variant="top" src={product.image} />
-                  <Card.Body></Card.Body>
-                  <Card.Footer className="text-muted px-2">
-                    € {product.price}{" "}
-                    {product.qty > 0 && (
-                      <span>
-                        {" "}
-                        x {product.qty} ={" "}
-                        <Badge pill variant="info">
-                          € {product.price * product.qty}
-                        </Badge>
-                      </span>
-                    )}
+                  
+
+                  <Card.Body><Button variant="outline-info" block className="rounded-pill">{product.title}</Button></Card.Body>
+                  <Card.Footer className="px-2 text-center">
+                    <div class="border border-info rounded-pill">
+                      € {product.price}{" "}
+                      {product.qty > 0 && (
+                        <span>
+                          {" "}
+                          x {product.qty} ={" "}
+                          <Badge pill variant="info">
+                            € {product.price * product.qty}
+                          </Badge>
+                        </span>
+                      )}
+                    </div>
                   </Card.Footer>
                 </Card>
 

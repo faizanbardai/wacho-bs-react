@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { PayPalButton } from "react-paypal-button-v2";
-import {  Col, Card, Table } from "react-bootstrap";
+import { Col, Card, Table } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 // import {  Container, Row, } from "react-bootstrap";
 
 export default class Checkout extends Component {
@@ -33,10 +34,12 @@ export default class Checkout extends Component {
                   <tr>
                     <td>Total</td>
                     <td>
-                      €{" "}
-                      {Number.parseFloat(amountToCharge + 5.9)
-                        .toFixed(2)
-                        .toString()}
+                      <Badge variant="info">
+                        €{" "}
+                        {Number.parseFloat(amountToCharge + 5.9)
+                          .toFixed(2)
+                          .toString()}
+                      </Badge>
                     </td>
                   </tr>
                 </tbody>
