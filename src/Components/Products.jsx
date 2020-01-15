@@ -68,7 +68,7 @@ export default class Products extends Component {
 
                   <Card.Body><Button variant="outline-info" block className="rounded-pill">{product.title}</Button></Card.Body>
                   <Card.Footer className="px-2 text-center">
-                    <div class="border border-info rounded-pill">
+                    <div className="border border-info rounded-pill">
                       € {product.price}{" "}
                       {product.qty > 0 && (
                         <span>
