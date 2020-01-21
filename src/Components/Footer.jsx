@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
@@ -29,6 +30,7 @@ export default function Footer() {
                 <div className="col-1"><i className="fa fa-phone text-light"></i></div>
                 <div className="col-11">
                   <address><a href="tel:+4917669521145" className="text-light">+49-176-69521145</a></address>
+                  <Link to="/admin">Admin Access</Link>
                 </div>
               </div>
             </div>
