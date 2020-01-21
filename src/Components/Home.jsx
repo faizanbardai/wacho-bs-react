@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import Header from "./Components/Header";
-import Navigation from "./Components/Navigation";
-import Products from "./Components/Products";
-import wine1 from "./img/p1.jpg";
-import wine2 from "./img/p2.jpg";
-import wine3 from "./img/p3.jpg";
-import wine4 from "./img/p4.jpg";
-import wine5 from "./img/p5.jpg";
-import Footer from "./Components/Footer";
-import TextSection from "./Components/TextSection";
+import Header from "./Header";
+import Navigation from "./Navigation";
+import Products from "./Products";
+import wine1 from "../img/p1.jpg";
+import wine2 from "../img/p2.jpg";
+import wine3 from "../img/p3.jpg";
+import wine4 from "../img/p4.jpg";
+import wine5 from "../img/p5.jpg";
+import Footer from "./Footer";
+import TextSection from "./TextSection";
 
-export default class MainComponent extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
