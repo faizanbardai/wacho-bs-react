@@ -9,11 +9,11 @@ export default class MainComponent extends Component {
       <div>
         <Router>
           <Switch>
-            <Route path="/wacho-bs-react/admin" component={Admin} />
+            <Route path="/admin" component={Admin} />
             <Route path="/" exact>
               <Home lang="de" />
             </Route>
-            <Route path="/wacho-bs-react/en" exact>
+            <Route path="/en" exact>
               <Home lang="en" />
             </Route>
           </Switch>
