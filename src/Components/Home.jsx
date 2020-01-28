@@ -10,7 +10,6 @@ export default class Home extends Component {
     super(props);
     this.state = {
       amountToCharge: 0,
-      lang: "en",
       products:[]
     };
   }
