@@ -10,7 +10,7 @@ export default class Home extends Component {
     super(props);
     this.state = {
       amountToCharge: 0,
-      products:[]
+      products: []
     };
   }
 
@@ -47,7 +47,7 @@ export default class Home extends Component {
   };
 
   render() {
-    let { products, amountToCharge, lang } = this.state;
+    let { products, amountToCharge } = this.state;
     return (
       <div>
         <Header />
@@ -59,7 +59,9 @@ export default class Home extends Component {
           decreaseQty={this.decreaseQty}
           amountToCharge={amountToCharge}
         />
-        <TextSection lang={lang} />
+        {this.state.en && (
+          <TextSection section={this.state.en.philosophySection} />
+        )}
         <Footer />
       </div>
     );
@@ -69,5 +71,16 @@ export default class Home extends Component {
     const response = await fetch(baseURL + "/products");
     const products = await response.json();
     this.setState({ products });
+    this.setState({
+      en: {
+        philosophySection: {
+          heading: "Philosophy",
+          paragraph1:
+            "Wines and Colors is a concept project with a focus on some of the smaller names of the wine industry, working hard to find the more interesting bottles being produced by boutique, ecological and start-up winemakers from Eastern and Western Europe. Here you'll find wines that are made ecologically and biodynamically, as well the famed 'orange wine,' a revival of an old form of winemaking that’s attracting growing interest at home and abroad. For this the grapes are kept macerating much longer than usual, giving the resulting liquid its distinctive colour and complex taste. If you’d like to know more, stop by Wines and Colors and pick up a bottle or two.",
+          paragraph2:
+            "We consider nowadays wines as monetary compromise with philosophy and sense of wine. And follow to concept that wine and wine drinking is real connection with God and Galaxy throw vineyard, environment, planet and human beings. We with you find eco- and biodynamic (by Rudolf Steiner and his teacher Helena Blavatsky, lived in Tbilisi), wine from mountains and trees (technology named Hautain), qvevri (clay pots, amphores) wines, wines from grapes dived into the sea, ancient and old technology made wines and a lot of others."
+        }
+      }
+    });
   };
 }
