@@ -6,7 +6,6 @@ import {
   HashRouter,
   Switch
 } from "react-router-dom";
-// import MainComponent from "./Components/MainComponent";
 import Home from "./Components/Home";
 import Admin from "./Components/Admin/Admin";
 
@@ -21,7 +20,6 @@ ReactDOM.render(
         <Route path="/" exact>
           <Home lang="de" />
         </Route>
-        {/* <MainComponent /> */}
       </Switch>
     </HashRouter>
   </Router>,

@@ -4,11 +4,13 @@ import Navigation from "./Navigation";
 import Products from "./Products";
 import Footer from "./Footer";
 import TextSection from "./TextSection";
+import Helmet from "react-helmet";
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       amountToCharge: 0,
       products: []
     };
@@ -50,6 +52,7 @@ export default class Home extends Component {
     let { products, amountToCharge } = this.state;
     return (
       <div>
+        <Helmet htmlAttributes={{ lang : this.props.lang }}/>
         <Header />
         <Navigation />
         <Products
