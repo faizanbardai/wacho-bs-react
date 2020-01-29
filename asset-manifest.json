@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/wacho-bs-react/static/js/main.a819ddc1.chunk.js",
-    "main.js.map": "/wacho-bs-react/static/js/main.a819ddc1.chunk.js.map",
+    "main.js": "/wacho-bs-react/static/js/main.0864ac24.chunk.js",
+    "main.js.map": "/wacho-bs-react/static/js/main.0864ac24.chunk.js.map",
     "runtime-main.js": "/wacho-bs-react/static/js/runtime-main.79b3f8fc.js",
     "runtime-main.js.map": "/wacho-bs-react/static/js/runtime-main.79b3f8fc.js.map",
-    "static/js/2.6d4f96f0.chunk.js": "/wacho-bs-react/static/js/2.6d4f96f0.chunk.js",
-    "static/js/2.6d4f96f0.chunk.js.map": "/wacho-bs-react/static/js/2.6d4f96f0.chunk.js.map",
+    "static/js/2.c1114be6.chunk.js": "/wacho-bs-react/static/js/2.c1114be6.chunk.js",
+    "static/js/2.c1114be6.chunk.js.map": "/wacho-bs-react/static/js/2.c1114be6.chunk.js.map",
     "index.html": "/wacho-bs-react/index.html",
-    "precache-manifest.b7bb68e679ae60c5fbe87a954def986a.js": "/wacho-bs-react/precache-manifest.b7bb68e679ae60c5fbe87a954def986a.js",
+    "precache-manifest.ce954e63969faa8701926ae53bb05022.js": "/wacho-bs-react/precache-manifest.ce954e63969faa8701926ae53bb05022.js",
     "service-worker.js": "/wacho-bs-react/service-worker.js",
-    "static/js/2.6d4f96f0.chunk.js.LICENSE": "/wacho-bs-react/static/js/2.6d4f96f0.chunk.js.LICENSE",
+    "static/js/2.c1114be6.chunk.js.LICENSE": "/wacho-bs-react/static/js/2.c1114be6.chunk.js.LICENSE",
     "static/media/header-loop.mp4": "/wacho-bs-react/static/media/header-loop.f3bd3584.mp4",
     "static/media/parallax1.jpg": "/wacho-bs-react/static/media/parallax1.433a88c8.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.79b3f8fc.js",
-    "static/js/2.6d4f96f0.chunk.js",
-    "static/js/main.a819ddc1.chunk.js"
+    "static/js/2.c1114be6.chunk.js",
+    "static/js/main.0864ac24.chunk.js"
   ]
 }

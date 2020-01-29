@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/wacho-bs-react/precache-manifest.b7bb68e679ae60c5fbe87a954def986a.js"
+  "/wacho-bs-react/precache-manifest.ce954e63969faa8701926ae53bb05022.js"
 );
 
 self.addEventListener('message', (event) => {
