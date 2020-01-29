@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "53f67b97c82e36083cd08e12a272f494",
+    "revision": "50b67b8c775248f33418fe6cdc3a6cbf",
     "url": "/wacho-bs-react/index.html"
   },
   {
-    "revision": "6466dcd9a8845c52ac51",
-    "url": "/wacho-bs-react/static/js/2.ca612d0b.chunk.js"
+    "revision": "30889d8655019f8b6f96",
+    "url": "/wacho-bs-react/static/js/2.2947594e.chunk.js"
   },
   {
     "revision": "54f6e2d0ef339619d0a432be7ac0ab75",
-    "url": "/wacho-bs-react/static/js/2.ca612d0b.chunk.js.LICENSE"
+    "url": "/wacho-bs-react/static/js/2.2947594e.chunk.js.LICENSE"
   },
   {
-    "revision": "be1d6cd10d0ab62d7b5a",
-    "url": "/wacho-bs-react/static/js/main.9d1a8473.chunk.js"
+    "revision": "f8c47b7c0470eec523f8",
+    "url": "/wacho-bs-react/static/js/main.52d609ad.chunk.js"
   },
   {
     "revision": "3b8f7b08cf7c59ff240e",
