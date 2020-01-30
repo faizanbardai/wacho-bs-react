@@ -4,6 +4,7 @@ import { faCartPlus, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { Card, Button, OverlayTrigger, Tooltip, Modal } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
 import Checkout from "./Checkout";
+import BannarText from "./BannarText";
 
 export default class Products extends Component {
   constructor(props) {
@@ -35,12 +36,10 @@ export default class Products extends Component {
     return (
       <>
         {/* Be smart text */}
-        <div
-          id="products"
-          className="handwritten shadow-lg p-3 my-5 bg-white rounded text-center display-4"
-        >
+        {/* <div className="handwritten shadow-lg p-3 my-5 bg-white rounded text-center display-4">
           Be smart, just drink the best and fuck the rest!
-        </div>
+        </div> */}
+        <BannarText text="Be smart, just drink the best and fuck the rest!" />
         {/* Products */}
         <section className="container mb-3">
           <div className="row wine-products d-flex justify-content-center">

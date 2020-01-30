@@ -8,6 +8,9 @@ import {
 } from "react-router-dom";
 import Home from "./Components/Home";
 import Admin from "./Components/Admin/Admin";
+import Header from "./Components/Header";
+import contentInEnglish from "../src/en.json";
+import contentInGerman from "../src/de.json";
 
 ReactDOM.render(
   <Router>
@@ -15,10 +18,13 @@ ReactDOM.render(
       <Switch>
         <Route path="/admin" component={Admin} />
         <Route path="/en" exact>
-          <Home lang="en" />
+          <Home lang="en" content={contentInEnglish} />
+        </Route>
+        <Route path="/de" exact>
+          <Home lang="de" content={contentInGerman} />
         </Route>
         <Route path="/" exact>
-          <Home lang="de" />
+          <Header />
         </Route>
       </Switch>
     </HashRouter>

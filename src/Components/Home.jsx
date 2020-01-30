@@ -1,16 +1,18 @@
 import React, { Component } from "react";
-import Header from "./Header";
 import Navigation from "./Navigation";
 import Products from "./Products";
 import Footer from "./Footer";
-import TextSection from "./TextSection";
+import PhilosophySection from "./PhilosophySection";
 import Helmet from "react-helmet";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+import SociologySection from "./SociologySection";
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
+      loadingProducts: true,
       amountToCharge: 0,
       products: []
     };
@@ -49,41 +51,38 @@ export default class Home extends Component {
   };
 
   render() {
-    let { products, amountToCharge } = this.state;
+    let { products, amountToCharge, loadingProducts } = this.state;
     return (
       <div>
-        <Helmet htmlAttributes={{ lang : this.props.lang }}/>
-        <Header />
+        <Helmet htmlAttributes={{ lang: this.props.lang }} />
         <Navigation />
-        <Products
-          products={products}
-          addProductToCart={this.addProductToCart}
-          increaseQty={this.increaseQty}
-          decreaseQty={this.decreaseQty}
-          amountToCharge={amountToCharge}
-        />
-        {this.state.en && (
-          <TextSection section={this.state.en.philosophySection} />
+        {loadingProducts ? (
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ height: "50vh" }}
+          >
+            <Loader type="Puff" color="#00BFFF" height={100} width={100} />
+          </div>
+        ) : (
+          <Products
+            products={products}
+            addProductToCart={this.addProductToCart}
+            increaseQty={this.increaseQty}
+            decreaseQty={this.decreaseQty}
+            amountToCharge={amountToCharge}
+          />
         )}
+        <PhilosophySection section={this.props.content.philosophySection} />
+        <SociologySection section={this.props.content.sociologySection} />
         <Footer />
       </div>
     );
   }
   componentDidMount = async () => {
     const baseURL = process.env.REACT_APP_BASE_URL;
-    const response = await fetch(baseURL + "/products");
-    const products = await response.json();
+    const responseProducts = await fetch(baseURL + "/products");
+    const products = await responseProducts.json();
     this.setState({ products });
-    this.setState({
-      en: {
-        philosophySection: {
-          heading: "Philosophy",
-          paragraph1:
-            "Wines and Colors is a concept project with a focus on some of the smaller names of the wine industry, working hard to find the more interesting bottles being produced by boutique, ecological and start-up winemakers from Eastern and Western Europe. Here you'll find wines that are made ecologically and biodynamically, as well the famed 'orange wine,' a revival of an old form of winemaking that’s attracting growing interest at home and abroad. For this the grapes are kept macerating much longer than usual, giving the resulting liquid its distinctive colour and complex taste. If you’d like to know more, stop by Wines and Colors and pick up a bottle or two.",
-          paragraph2:
-            "We consider nowadays wines as monetary compromise with philosophy and sense of wine. And follow to concept that wine and wine drinking is real connection with God and Galaxy throw vineyard, environment, planet and human beings. We with you find eco- and biodynamic (by Rudolf Steiner and his teacher Helena Blavatsky, lived in Tbilisi), wine from mountains and trees (technology named Hautain), qvevri (clay pots, amphores) wines, wines from grapes dived into the sea, ancient and old technology made wines and a lot of others."
-        }
-      }
-    });
+    this.setState({ loadingProducts: false });
   };
 }

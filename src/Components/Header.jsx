@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import HeaderLoopVideo from "../vid/header-loop.mp4";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeOff } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default class Header extends Component {
   constructor(props) {
@@ -34,6 +36,36 @@ export default class Header extends Component {
                 <p className="lead mb-0">
                   Epic | Ethic | Exceptional | Estraordinary | Exclusive
                 </p>
+                <div className="my-4">
+                  <Link to="/en">
+                    <Button
+                      style={{
+                        minWidth: "80px",
+                        maxWidth: "400px",
+                        width: "200px"
+                      }}
+                      className="mx-2 mb-4"
+                      size="lg"
+                      variant="outline-primary"
+                    >
+                      English
+                    </Button>
+                  </Link>
+                  <Link to="/de">
+                    <Button
+                      style={{
+                        minWidth: "80px",
+                        maxWidth: "400px",
+                        width: "200px"
+                      }}
+                      className="mx-2 mb-4"
+                      size="lg"
+                      variant="outline-primary"
+                    >
+                      Deutsch
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

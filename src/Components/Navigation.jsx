@@ -9,7 +9,7 @@ export default class Navigation extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#products">Products</Nav.Link>
+            {/* <Nav.Link href="#products">Products</Nav.Link> */}
             <NavDropdown title="About" id="basic-nav-dropdown">
               <NavDropdown.Item href="#philosophy">Philosophy</NavDropdown.Item>
               <NavDropdown.Item href="#sociology">Sociology</NavDropdown.Item>

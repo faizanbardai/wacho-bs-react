@@ -1,14 +1,16 @@
 import React from "react";
-import parallax1 from "../img/parallax1.jpg";
+import philosophyImg from "../img/philosophy.jpg";
+import BannarText from "./BannarText";
 
-export default function TextSection(props) {
+export default function PhilosophySection(props) {
+  const { heading, paragraph1, paragraph2, bannarText } = props.section;
   return (
-    <div>
+    <div id="philosophy">
       <div
         className="vh-100 d-flex parallax justify-content-center align-items-center"
-        style={{ backgroundImage: "url(" + parallax1 + ")" }}
+        style={{ backgroundImage: "url(" + philosophyImg + ")" }}
       >
-        <h2 className="text-white">{props.section.heading}</h2>
+        <h2 className="text-white">{heading}</h2>
       </div>
       <section className="container py-3" id="philosophy">
         <div className="row">
@@ -21,15 +23,12 @@ export default function TextSection(props) {
             />
           </div>
           <div className="col-12 col-sm-8 m-auto">
-                <p>
-                  {props.section.paragraph1}
-                </p>
-                <p>
-                  {props.section.paragraph2}                  
-                </p>
+            <p>{paragraph1}</p>
+            <p>{paragraph2}</p>
           </div>
         </div>
       </section>
+      <BannarText text={bannarText} />
     </div>
   );
 }
