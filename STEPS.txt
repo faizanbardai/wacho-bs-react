@@ -1,1 +1,2 @@
 Product Detail model is not full screen
+nav links are not working
