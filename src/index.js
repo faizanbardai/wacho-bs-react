@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
   Route,
-  // HashRouter,
+  HashRouter,
   Switch
 } from "react-router-dom";
 import Home from "./Components/Home";
