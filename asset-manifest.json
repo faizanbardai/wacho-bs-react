@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/wacho-bs-react/static/js/main.444452c6.chunk.js",
-    "main.js.map": "/wacho-bs-react/static/js/main.444452c6.chunk.js.map",
+    "main.js": "/wacho-bs-react/static/js/main.655b1f31.chunk.js",
+    "main.js.map": "/wacho-bs-react/static/js/main.655b1f31.chunk.js.map",
     "runtime-main.js": "/wacho-bs-react/static/js/runtime-main.79b3f8fc.js",
     "runtime-main.js.map": "/wacho-bs-react/static/js/runtime-main.79b3f8fc.js.map",
     "static/css/2.f5298653.chunk.css": "/wacho-bs-react/static/css/2.f5298653.chunk.css",
-    "static/js/2.f5deafb4.chunk.js": "/wacho-bs-react/static/js/2.f5deafb4.chunk.js",
-    "static/js/2.f5deafb4.chunk.js.map": "/wacho-bs-react/static/js/2.f5deafb4.chunk.js.map",
+    "static/js/2.b548a5b1.chunk.js": "/wacho-bs-react/static/js/2.b548a5b1.chunk.js",
+    "static/js/2.b548a5b1.chunk.js.map": "/wacho-bs-react/static/js/2.b548a5b1.chunk.js.map",
     "index.html": "/wacho-bs-react/index.html",
-    "precache-manifest.9e70920e386dec76859799cee14bb65a.js": "/wacho-bs-react/precache-manifest.9e70920e386dec76859799cee14bb65a.js",
+    "precache-manifest.e727b2cbd96862aa0b707057e71a105b.js": "/wacho-bs-react/precache-manifest.e727b2cbd96862aa0b707057e71a105b.js",
     "service-worker.js": "/wacho-bs-react/service-worker.js",
     "static/css/2.f5298653.chunk.css.map": "/wacho-bs-react/static/css/2.f5298653.chunk.css.map",
-    "static/js/2.f5deafb4.chunk.js.LICENSE": "/wacho-bs-react/static/js/2.f5deafb4.chunk.js.LICENSE",
+    "static/js/2.b548a5b1.chunk.js.LICENSE": "/wacho-bs-react/static/js/2.b548a5b1.chunk.js.LICENSE",
     "static/media/header-loop.mp4": "/wacho-bs-react/static/media/header-loop.f3bd3584.mp4",
     "static/media/philosophy.jpg": "/wacho-bs-react/static/media/philosophy.fa68be64.jpg",
     "static/media/sociology.jpg": "/wacho-bs-react/static/media/sociology.d71a8e1e.jpg"
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.79b3f8fc.js",
     "static/css/2.f5298653.chunk.css",
-    "static/js/2.f5deafb4.chunk.js",
-    "static/js/main.444452c6.chunk.js"
+    "static/js/2.b548a5b1.chunk.js",
+    "static/js/main.655b1f31.chunk.js"
   ]
 }
