@@ -1,2 +1,2 @@
 Product Detail model is not full screen
-nav links are not working
+nav links are not working with react router + there is # issue

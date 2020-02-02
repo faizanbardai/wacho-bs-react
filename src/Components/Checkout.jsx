@@ -2,14 +2,11 @@ import React, { Component } from "react";
 import { PayPalButton } from "react-paypal-button-v2";
 import { Col, Card, Table } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
-// import {  Container, Row, } from "react-bootstrap";
 
 export default class Checkout extends Component {
   render() {
-    const { amountToCharge } = this.props;
+    const { amountToCharge, products } = this.props;
     return (
-      // <Container id="checkout" className="mb-3">
-      // <Row className="d-flex justify-content-around">
       <>
         <Col xs={12} md={4} className="my-2">
           <Card>
@@ -52,6 +49,18 @@ export default class Checkout extends Component {
             <Card.Body className="p-0 m-2 text-center">
               <PayPalButton
                 createOrder={(data, actions) => {
+                  let productPurchased = [];
+                  products
+                    .filter(product => product.qty > 0)
+                    .map(product =>
+                      productPurchased.push({
+                        _id: product._id,
+                        title: product.title,
+                        qty: product.qty
+                      })
+                    );
+                  console.log({ amountToCharge, productPurchased });
+
                   // This function sets up the details of the transaction, including the amount and line item details.
                   return actions.order.create({
                     purchase_units: [
@@ -67,20 +76,53 @@ export default class Checkout extends Component {
                 }}
                 onApprove={(data, actions) => {
                   // This function captures the funds from the transaction.
-                  return actions.order.capture().then(function(details) {
+                  return actions.order.capture().then(async function(details) {
                     // This function shows a transaction success message to your buyer.
                     alert(
                       "Transaction completed by " +
                         details.payer.name.given_name
                     );
+                    // Call your server to save the transaction
+                    let productPurchased = [];
+                    products
+                      .filter(product => product.qty > 0)
+                      .map(product =>
+                        productPurchased.push({
+                          _id: product._id,
+                          title: product.title,
+                          qty: product.qty
+                        })
+                      );
+                    const serverResponse = await fetch(
+                      "http://localhost:3003/purchases",
+                      {
+                        method: "POST",
+                        headers: {
+                          "content-type": "application/json"
+                        },
+                        body: JSON.stringify({
+                          orderID: data.orderID,
+                          totalAmount: amountToCharge,
+                          products: productPurchased,
+                          captureDetail: details
+                        })
+                      }
+                    );
+                    console.log(serverResponse);
+                    // return fetch("/paypal-transaction-complete", {
+                    //   method: "POST",
+                    //   headers: {
+                    //     "content-type": "application/json"
+                    //   },
+                    //   body: JSON.stringify({ orderID: data.orderID })
+                    // });
                   });
                 }}
               />
             </Card.Body>
           </Card>
         </Col>
-      </> // </Row>
-      // </Container>
+      </>
     );
   }
 }

@@ -29,7 +29,6 @@ export default class Products extends Component {
       addProductToCart,
       increaseQty,
       decreaseQty,
-      productsInCart,
       amountToCharge
     } = this.props;
     const { selectedProduct } = this.state;
@@ -156,10 +155,7 @@ export default class Products extends Component {
               </div>
             ))}
             {amountToCharge > 0 && (
-              <Checkout
-                amountToCharge={amountToCharge}
-                productsInCart={productsInCart}
-              />
+              <Checkout amountToCharge={amountToCharge} products={products} />
             )}
           </div>
         </section>
@@ -174,36 +170,36 @@ export default class Products extends Component {
             <Modal.Title>{selectedProduct.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div class="card">
-              <div class="row no-gutters">
-                <div class="col-md-4">
+            <div className="card">
+              <div className="row no-gutters">
+                <div className="col-md-4">
                   <img
                     src={selectedProduct.image}
-                    class="card-img"
+                    className="card-img"
                     alt="Rice pitcher"
                   />
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                      <li id="variety" class="list-group-item">
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <ul className="list-group list-group-flush">
+                      <li id="variety" className="list-group-item">
                         Variety: {selectedProduct.variety}
                       </li>
-                      <li id="color" class="list-group-item">
+                      <li id="color" className="list-group-item">
                         Color: {selectedProduct.color}
                       </li>
-                      <li id="aroma" class="list-group-item">
+                      <li id="aroma" className="list-group-item">
                         Aroma: {selectedProduct.aroma}
                       </li>
-                      <li id="taste" class="list-group-item">
+                      <li id="taste" className="list-group-item">
                         The taste is {selectedProduct.taste}
                       </li>
                     </ul>
-                    <p id="description" class="card-text">
+                    <p id="description" className="card-text">
                       {selectedProduct.description}
                     </p>
-                    <p class="card-text">
-                      <small id="alcohol" class="text-muted">
+                    <p className="card-text">
+                      <small id="alcohol" className="text-muted">
                         Alcohol: {selectedProduct.alcohol}
                       </small>
                     </p>
