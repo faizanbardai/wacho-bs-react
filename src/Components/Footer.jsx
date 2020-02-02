@@ -26,7 +26,7 @@ export default function Footer() {
                 <p className="text-light">
                   Goldenes Vlies M.M.M.
                   <br />
-                  Regerplatz, 5 81541 Munich Germany
+                  Regerplatz 5, 81541 Munich Germany
                 </p>
               </div>
             </div>
