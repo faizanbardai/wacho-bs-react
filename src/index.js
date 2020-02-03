@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
   Route,
-  HashRouter,
+  BrowserRouter,
   Switch
 } from "react-router-dom";
 import Home from "./Components/Home";
@@ -14,7 +14,7 @@ import contentInGerman from "../src/de.json";
 
 ReactDOM.render(
   <Router>
-    <HashRouter basename="/">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path="/admin" component={Admin} />
         <Route path="/en" exact>
@@ -27,7 +27,7 @@ ReactDOM.render(
           <Header />
         </Route>
       </Switch>
-    </HashRouter>
+    </BrowserRouter>
   </Router>,
   document.getElementById("root")
 );
