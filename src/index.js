@@ -13,6 +13,7 @@ import contentInEnglish from "../src/en.json";
 import contentInGerman from "../src/de.json";
 import store from "./store";
 import { Provider } from "react-redux";
+import PageNotFound from "./Components/PageNotFound";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -29,6 +30,7 @@ ReactDOM.render(
           <Route path="/" exact>
             <Header />
           </Route>
+          <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>
     </Router>
