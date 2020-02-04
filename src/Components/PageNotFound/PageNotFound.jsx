@@ -10,9 +10,7 @@ export default function PageNotFound() {
           <h1>Oops!</h1>
           <h2>404 - The Page can't be found</h2>
         </div>
-        <Link to="/">
-          <a href="/">Go TO Homepage</a>
-        </Link>
+        <Link to="/">Go TO Homepage</Link>
       </div>
       {/* <!-- This templates was made by Colorlib (https://colorlib.com) --> */}
     </div>
