@@ -3,9 +3,8 @@ export default (state = {}, action) => {
   let product, value;
   switch (action.type) {
     case "LOAD_PRODUCTS":
-      const productsFromServer = action.payload;
       return {
-        productsFromServer,
+        productsFromServer: action.payload,
         fetchInProgress: false
       };
     case "INCREASE_QTY":

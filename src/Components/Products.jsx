@@ -8,7 +8,8 @@ import {
   Button,
   OverlayTrigger,
   Tooltip,
-  Modal
+  Modal,
+  Toast
 } from "react-bootstrap";
 import Checkout from "./Checkout";
 import Loader from "react-loader-spinner";
@@ -32,6 +33,7 @@ class Products extends Component {
     super(props);
     this.state = {
       showProductDetail: false,
+      showCartToast: true,
       selectedProduct: {}
     };
   }
@@ -44,8 +46,14 @@ class Products extends Component {
   handleCloseProductDetail = () => {
     this.setState({ showProductDetail: false });
   };
+  handleCloseCartToast = () => {
+    this.setState({ showCartToast: false });
+  };
+  handleOpenCartToast = () => {
+    this.setState({ showCartToast: true });
+  };
   render() {
-    const { selectedProduct } = this.state;
+    const { selectedProduct, showCartToast } = this.state;
 
     const {
       increaseQty,
@@ -66,7 +74,37 @@ class Products extends Component {
             <Loader type="Puff" color="#00BFFF" height={100} width={100} />
           </div>
         ) : (
-          <section className="container mb-3">
+          <section className="container-fluid mb-3">
+            {selectedProduct && (
+              <Toast
+                show={showCartToast}
+                onClose={() => this.handleCloseCartToast()}
+                delay={2000}
+                autohide
+                aria-live="polite"
+                aria-atomic="true"
+                style={{
+                  zIndex: 1,
+                  position: "fixed",
+                  bottom: "10px",
+                  left: "10px",
+                  minHeight: "100px",
+                  minWidth: "300px"
+                }}
+              >
+                <Toast.Header>
+                  <img
+                    src={products[0].image}
+                    style={{ width: "30px" }}
+                    className="rounded mr-2"
+                    alt=""
+                  />
+                  <strong className="mr-auto">{products[0].title}</strong>
+                  <small>Quantity: {products[0].qty}</small>
+                </Toast.Header>
+                <Toast.Body>Rice Pitcher added to Cart.</Toast.Body>
+              </Toast>
+            )}
             <div className="row wine-products d-flex justify-content-center">
               {products &&
                 products.map(product => (
@@ -93,6 +131,7 @@ class Products extends Component {
                                   }
                                   onClick={() => {
                                     increaseQty(product._id);
+                                    this.setState({ showCartToast: true });
                                   }}
                                   className="rounded-circle m-2"
                                 >
@@ -113,6 +152,7 @@ class Products extends Component {
                                   size="sm"
                                   onClick={() => {
                                     decreaseQty(product._id);
+                                    this.setState({ showCartToast: true });
                                   }}
                                   className="rounded-circle m-2"
                                 >
@@ -141,6 +181,7 @@ class Products extends Component {
                                 }
                                 onClick={() => {
                                   increaseQty(product._id);
+                                  this.setState({ showCartToast: true });
                                 }}
                                 className="rounded-circle m-2"
                               >
