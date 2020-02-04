@@ -1,11 +1,37 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { PayPalButton } from "react-paypal-button-v2";
 import { Col, Card, Table } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
 
-export default class Checkout extends Component {
+const mapStateToProps = state => state;
+const mapDispatchToProps = dispatch => ({
+  loadProducts: () => dispatch(loadProducts())
+});
+const loadProducts = () => {
+  return async dispatch => {
+    const baseURL = process.env.REACT_APP_BASE_URL;
+    const responseProducts = await fetch(baseURL + "/products");
+    const products = await responseProducts.json();
+    console.log("Testing with checkout");
+    dispatch({
+      type: "LOAD_PRODUCTS",
+      payload: products
+    });
+  };
+};
+
+class Checkout extends Component {
   render() {
-    const { amountToCharge, products } = this.props;
+    let products = null;
+    let amountToCharge = 0;
+    let reloadProducts;
+    if (this.props.products && this.props.products.productsFromServer) {
+      products = this.props.products.productsFromServer;
+      amountToCharge = this.props.products.amountToCharge;
+      reloadProducts = this.props.loadProducts;
+    }
+
     return (
       <>
         <Col xs={12} md={4} className="my-2">
@@ -15,7 +41,9 @@ export default class Checkout extends Component {
               <Table hover borderless size="sm">
                 <tbody>
                   <tr>
-                    <td>Subtotal: </td>
+                    <td onClick={() => this.props.loadProducts()}>
+                      Subtotal:{" "}
+                    </td>
                     <td>
                       €{" "}
                       {Number.parseFloat(amountToCharge)
@@ -59,7 +87,6 @@ export default class Checkout extends Component {
                         qty: product.qty
                       })
                     );
-                  console.log({ amountToCharge, productPurchased });
 
                   // This function sets up the details of the transaction, including the amount and line item details.
                   return actions.order.create({
@@ -93,22 +120,21 @@ export default class Checkout extends Component {
                           qty: product.qty
                         })
                       );
-                    const serverResponse = await fetch(
-                      "http://localhost:3003/purchases",
-                      {
-                        method: "POST",
-                        headers: {
-                          "content-type": "application/json"
-                        },
-                        body: JSON.stringify({
-                          orderID: data.orderID,
-                          totalAmount: amountToCharge,
-                          products: productPurchased,
-                          captureDetail: details
-                        })
-                      }
-                    );
-                    console.log(serverResponse);
+                    const baseURL = process.env.REACT_APP_BASE_URL;
+                    await fetch(baseURL + "/purchases", {
+                      method: "POST",
+                      headers: {
+                        "content-type": "application/json"
+                      },
+                      body: JSON.stringify({
+                        orderID: data.orderID,
+                        totalAmount: amountToCharge,
+                        products: productPurchased,
+                        captureDetail: details
+                      })
+                    });
+                    await reloadProducts();
+                    console.log("after loading");
                     // return fetch("/paypal-transaction-complete", {
                     //   method: "POST",
                     //   headers: {
@@ -126,3 +152,5 @@ export default class Checkout extends Component {
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

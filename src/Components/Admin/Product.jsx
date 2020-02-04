@@ -8,9 +8,9 @@ import {
   Image,
   Col,
   Form,
-  Button
+  Button,
+  Badge
 } from "react-bootstrap";
-import { Badge } from "react-bootstrap";
 
 export default class Product extends Component {
   constructor(props) {
@@ -26,7 +26,6 @@ export default class Product extends Component {
     inventory = parseInt(inventory) + parseInt(quantity);
     inventory = inventory.toString();
     const baseURL = process.env.REACT_APP_BASE_URL;
-    console.log({ _id, inventory });
     try {
       fetch(baseURL + "/products", {
         method: "PUT",

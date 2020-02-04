@@ -1,12 +1,33 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-import { Card, Button, OverlayTrigger, Tooltip, Modal } from "react-bootstrap";
-import { Badge } from "react-bootstrap";
+import {
+  Badge,
+  Card,
+  Button,
+  OverlayTrigger,
+  Tooltip,
+  Modal
+} from "react-bootstrap";
 import Checkout from "./Checkout";
-import BannarText from "./BannarText";
+import Loader from "react-loader-spinner";
+import { increaseQty, decreaseQty, loadProducts } from "../actions";
 
-export default class Products extends Component {
+const mapStateToProps = state => {
+  return {
+    products: state.products.productsFromServer,
+    fetchInProgress: state.products.fetchInProgress,
+    amountToCharge: state.products.amountToCharge
+  };
+};
+const mapDispatchToProps = dispatch => ({
+  loadProducts: () => dispatch(loadProducts()),
+  increaseQty: _id => dispatch(increaseQty(_id)),
+  decreaseQty: _id => dispatch(decreaseQty(_id))
+});
+
+class Products extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,141 +45,153 @@ export default class Products extends Component {
     this.setState({ showProductDetail: false });
   };
   render() {
-    let {
-      products,
-      addProductToCart,
+    const { selectedProduct } = this.state;
+
+    const {
       increaseQty,
       decreaseQty,
+      products,
+      fetchInProgress,
       amountToCharge
     } = this.props;
-    const { selectedProduct } = this.state;
     return (
       <>
-        {/* Be smart text */}
-        {/* <div className="handwritten shadow-lg p-3 my-5 bg-white rounded text-center display-4">
-          Be smart, just drink the best and fuck the rest!
-        </div> */}
-        <BannarText text="Be smart, just drink the best and fuck the rest!" />
         {/* Products */}
-        <section className="container mb-3">
-          <div className="row wine-products d-flex justify-content-center">
-            {products.map(product => (
-              <div key={product._id} className="col-6 col-md-3 pb-2">
-                <Card>
-                  <div className="ml-auto">
-                    {product.qty > 0 && (
-                      <>
-                        <OverlayTrigger
-                          overlay={
-                            <Tooltip id="tooltip-disabled">
-                              {product.inventory === 0
-                                ? "Last available item added to cart"
-                                : "Increase Quantity"}
-                            </Tooltip>
-                          }
-                        >
-                          <span className="d-inline-block">
-                            <Button
-                              variant="outline-info"
-                              size="sm"
-                              disabled={product.inventory === 0 ? true : false}
-                              onClick={() => {
-                                increaseQty(product._id);
-                              }}
-                              className="rounded-circle m-2"
-                            >
-                              <FontAwesomeIcon icon={faPlus} />
-                            </Button>
-                          </span>
-                        </OverlayTrigger>
-                        <OverlayTrigger
-                          overlay={
-                            <Tooltip id="tooltip-disabled">
-                              Decrease Quantity
-                            </Tooltip>
-                          }
-                        >
-                          <span className="d-inline-block">
-                            <Button
-                              variant="outline-info"
-                              size="sm"
-                              onClick={() => {
-                                decreaseQty(product._id);
-                              }}
-                              className="rounded-circle m-2"
-                            >
-                              <FontAwesomeIcon icon={faMinus} />
-                            </Button>
-                          </span>
-                        </OverlayTrigger>
-                      </>
-                    )}
-                    {product.qty === 0 && (
-                      <OverlayTrigger
-                        overlay={
-                          <Tooltip id="tooltip-disabled">
-                            {product.inventory === 0
-                              ? "Out of stock"
-                              : "Add to Cart"}
-                          </Tooltip>
-                        }
-                      >
-                        <span className="d-inline-block">
-                          <Button
-                            variant="outline-info"
-                            size="sm"
-                            disabled={product.inventory === 0 ? true : false}
-                            onClick={() => {
-                              addProductToCart(product._id);
-                            }}
-                            className="rounded-circle m-2"
-                          >
-                            <FontAwesomeIcon icon={faCartPlus} />
-                          </Button>
-                        </span>
-                      </OverlayTrigger>
-                    )}
-                  </div>
-                  <Card.Img variant="top" src={product.image} />
-                  <Card.Body>
-                    <Button
-                      variant="outline-info"
-                      block
-                      className="rounded-pill"
-                      onClick={() => this.handleShowProductDetail(product._id)}
-                    >
-                      {product.title}
-                    </Button>
-                  </Card.Body>
-                  <Card.Footer className="px-2 text-center">
-                    <div className="border border-info rounded-pill mb-2">
-                      € {parseFloat(product.price).toFixed(2)}{" "}
-                      {product.qty > 0 && (
-                        <span>
-                          {" "}
-                          x {product.qty} ={" "}
-                          <Badge pill variant="info">
-                            €{" "}
-                            {(
-                              parseFloat(product.price) *
-                              parseFloat(product.qty)
-                            ).toFixed(2)}
-                          </Badge>
-                        </span>
-                      )}
-                    </div>
-                    <div className="border border-info rounded-pill">
-                      In-stock: {product.inventory}
-                    </div>
-                  </Card.Footer>
-                </Card>
-              </div>
-            ))}
-            {amountToCharge > 0 && (
-              <Checkout amountToCharge={amountToCharge} products={products} />
-            )}
+        {fetchInProgress ? (
+          // Loader
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ height: "50vh" }}
+          >
+            <Loader type="Puff" color="#00BFFF" height={100} width={100} />
           </div>
-        </section>
+        ) : (
+          <section className="container mb-3">
+            <div className="row wine-products d-flex justify-content-center">
+              {products &&
+                products.map(product => (
+                  <div key={product._id} className="col-6 col-md-3 pb-2">
+                    <Card>
+                      <div className="ml-auto">
+                        {product.qty > 0 && (
+                          <>
+                            <OverlayTrigger
+                              overlay={
+                                <Tooltip id="tooltip-disabled">
+                                  {product.inventory === 0
+                                    ? "Last available item added to cart"
+                                    : "Increase Quantity"}
+                                </Tooltip>
+                              }
+                            >
+                              <span className="d-inline-block">
+                                <Button
+                                  variant="outline-info"
+                                  size="sm"
+                                  disabled={
+                                    product.inventory === 0 ? true : false
+                                  }
+                                  onClick={() => {
+                                    increaseQty(product._id);
+                                  }}
+                                  className="rounded-circle m-2"
+                                >
+                                  <FontAwesomeIcon icon={faPlus} />
+                                </Button>
+                              </span>
+                            </OverlayTrigger>
+                            <OverlayTrigger
+                              overlay={
+                                <Tooltip id="tooltip-disabled">
+                                  Decrease Quantity
+                                </Tooltip>
+                              }
+                            >
+                              <span className="d-inline-block">
+                                <Button
+                                  variant="outline-info"
+                                  size="sm"
+                                  onClick={() => {
+                                    decreaseQty(product._id);
+                                  }}
+                                  className="rounded-circle m-2"
+                                >
+                                  <FontAwesomeIcon icon={faMinus} />
+                                </Button>
+                              </span>
+                            </OverlayTrigger>
+                          </>
+                        )}
+                        {product.qty === 0 && (
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-disabled">
+                                {product.inventory === 0
+                                  ? "Out of stock"
+                                  : "Add to Cart"}
+                              </Tooltip>
+                            }
+                          >
+                            <span className="d-inline-block">
+                              <Button
+                                variant="outline-info"
+                                size="sm"
+                                disabled={
+                                  product.inventory === 0 ? true : false
+                                }
+                                onClick={() => {
+                                  increaseQty(product._id);
+                                }}
+                                className="rounded-circle m-2"
+                              >
+                                <FontAwesomeIcon icon={faCartPlus} />
+                              </Button>
+                            </span>
+                          </OverlayTrigger>
+                        )}
+                      </div>
+                      <Card.Img variant="top" src={product.image} />
+                      <Card.Body>
+                        <Button
+                          variant="outline-info"
+                          block
+                          className="rounded-pill"
+                          onClick={() =>
+                            this.handleShowProductDetail(product._id)
+                          }
+                        >
+                          {product.title}
+                        </Button>
+                      </Card.Body>
+                      <Card.Footer className="px-2 text-center">
+                        <div className="border border-info rounded-pill mb-2">
+                          € {parseFloat(product.price).toFixed(2)}{" "}
+                          {product.qty > 0 && (
+                            <span>
+                              {" "}
+                              x {product.qty} ={" "}
+                              <Badge pill variant="info">
+                                €{" "}
+                                {(
+                                  parseFloat(product.price) *
+                                  parseFloat(product.qty)
+                                ).toFixed(2)}
+                              </Badge>
+                            </span>
+                          )}
+                        </div>
+                        <div className="border border-info rounded-pill">
+                          In-stock: {product.inventory}
+                        </div>
+                      </Card.Footer>
+                    </Card>
+                  </div>
+                ))}
+              {amountToCharge > 0 && <Checkout />}
+            </div>
+          </section>
+        )}
+
         <Modal
           show={this.state.showProductDetail}
           onHide={this.handleCloseProductDetail}
@@ -213,4 +246,9 @@ export default class Products extends Component {
       </>
     );
   }
+  componentDidMount = async () => {
+    await this.props.loadProducts();
+  };
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
