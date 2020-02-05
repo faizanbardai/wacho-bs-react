@@ -1,6 +1,6 @@
 import HeaderLoopVideo from "../vid/header-loop.mp4";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faVolumeOff } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faVolumeOff } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -21,12 +21,12 @@ export default function Header() {
       <div className="container h-100">
         <div className="d-flex h-100 text-center align-items-center">
           <div className="w-100 text-white">
-            <div
+            {/* <div
               className="display-4"
               // onClick={this.togglePlay}
             >
               <FontAwesomeIcon icon={faVolumeOff} />
-            </div>
+            </div> */}
             <h1 className="display-3">Hautain Wine</h1>
             <p className="lead mb-0">
               Epic | Ethic | Exceptional | Estraordinary | Exclusive
