@@ -12,7 +12,7 @@ export default function AboutMe(props) {
     paragraph5
   } = props.section;
   return (
-    <Container id="about-me" className="py-3">
+    <Container id="about-me" style={{ padding: "60px 0" }}>
       {/* <div
         className="vh-100 d-flex parallax justify-content-center align-items-center"
         style={{ backgroundImage: "url(" + aboutMeImg + ")" }}

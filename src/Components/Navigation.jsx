@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Navigation() {
   return (
-    <Navbar bg="dark" variant="dark" expand="md">
+    <Navbar bg="dark" variant="dark" expand="md" fixed="top">
       <Link to="/">
         <Navbar.Brand>Wines N’ Roses</Navbar.Brand>
       </Link>
