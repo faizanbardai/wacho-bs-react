@@ -76,11 +76,19 @@ class Products extends Component {
         ) : (
           <section className="container-fluid mb-3">
             <ProductToast propsForToast={propsForToast} />
-            <div className="row wine-products d-flex justify-content-center">
+            <div className="row wine-products d-flex justify-content-center bg-white pt-4">
               {products &&
                 products.map(product => (
-                  <div key={product._id} className="col-6 col-md-3 pb-2">
-                    <Card>
+                  <div key={product._id} className="px-2 pb-2">
+                    <Button
+                      variant="outline-info"
+                      block
+                      className="rounded-pill my-2"
+                      onClick={() => this.handleShowProductDetail(product._id)}
+                    >
+                      {product.title}
+                    </Button>
+                    <Card style={{ width: "180px" }}>
                       <div className="ml-auto">
                         {product.qty > 0 && (
                           <>
@@ -184,18 +192,7 @@ class Products extends Component {
                         )}
                       </div>
                       <Card.Img variant="top" src={product.image} />
-                      <Card.Body>
-                        <Button
-                          variant="outline-info"
-                          block
-                          className="rounded-pill"
-                          onClick={() =>
-                            this.handleShowProductDetail(product._id)
-                          }
-                        >
-                          {product.title}
-                        </Button>
-                      </Card.Body>
+                      <Card.Body></Card.Body>
                       <Card.Footer className="px-2 text-center">
                         <div className="border border-info rounded-pill mb-2">
                           € {parseFloat(product.price).toFixed(2)}{" "}
@@ -218,6 +215,7 @@ class Products extends Component {
                         </div>
                       </Card.Footer>
                     </Card>
+                    <hr />
                   </div>
                 ))}
               {amountToCharge > 0 && <Checkout />}
