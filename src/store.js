@@ -5,7 +5,7 @@ import productReducer from "./Reducers/products";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const initialState = {
-  products: { fetchInProgress: true }
+  products: { fetchInProgress: true, showProductToast: false }
 };
 
 const combinedReducer = combineReducers({

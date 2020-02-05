@@ -5,7 +5,8 @@ export default (state = {}, action) => {
     case "LOAD_PRODUCTS":
       return {
         productsFromServer: action.payload,
-        fetchInProgress: false
+        fetchInProgress: false,
+        showProductToast: false
       };
     case "INCREASE_QTY":
       product = products.find(product => product._id === action.payload);
@@ -18,7 +19,8 @@ export default (state = {}, action) => {
       return {
         ...state,
         productsFromServer: products,
-        amountToCharge: value
+        amountToCharge: value,
+        showProductToast: true
       };
     case "DECREASE_QTY":
       product = products.find(product => product._id === action.payload);
@@ -31,7 +33,13 @@ export default (state = {}, action) => {
       return {
         ...state,
         productsFromServer: products,
-        amountToCharge: value
+        amountToCharge: value,
+        showProductToast: true
+      };
+    case "HIDE_PRODUCT_TOAST":
+      return {
+        ...state,
+        showProductToast: false
       };
     default:
       return state;
