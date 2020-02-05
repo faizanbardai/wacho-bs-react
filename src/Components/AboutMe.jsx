@@ -4,7 +4,7 @@ import aboutMeImg from "../img/aboutMeImg.jpg";
 
 export default function AboutMe(props) {
   const {
-    heading,
+    // heading,
     paragraph1,
     paragraph2,
     paragraph3,
