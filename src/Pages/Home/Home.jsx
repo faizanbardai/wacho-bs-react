@@ -1,13 +1,13 @@
 import React from "react";
-import Navigation from "./Navigation";
-import Products from "./Products";
-import PhilosophySection from "./PhilosophySection";
-import SociologySection from "./SociologySection";
-import Footer from "./Footer";
+import Navigation from "../../Components/Navigation";
+import Products from "../../Components/Products";
+import PhilosophySection from "../../Components/PhilosophySection";
+import SociologySection from "../../Components/SociologySection";
+import Footer from "../../Components/Footer";
 import Helmet from "react-helmet";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import BannarText from "./BannarText";
-import AboutMe from "./AboutMe";
+import BannarText from "../../Components/BannarText";
+import AboutMe from "../../Components/AboutMe";
 
 export default function Home(props) {
   return (

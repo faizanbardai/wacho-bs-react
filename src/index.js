@@ -6,7 +6,7 @@ import {
   BrowserRouter,
   Switch
 } from "react-router-dom";
-import Home from "./Components/Home";
+import Home from "./Pages/Home/Home";
 import Admin from "./Components/Admin/Admin";
 import Header from "./Components/Header";
 import contentInEnglish from "../src/en.json";
