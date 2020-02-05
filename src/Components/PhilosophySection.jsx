@@ -1,17 +1,13 @@
 import React from "react";
 import philosophyImg from "../img/philosophy.jpg";
 import BannarText from "./BannarText";
+import Parallax from "./Parallax";
 
 export default function PhilosophySection(props) {
   const { heading, paragraph1, paragraph2, bannarText } = props.section;
   return (
     <div id="philosophy">
-      <div
-        className="vh-100 d-flex parallax justify-content-center align-items-center"
-        style={{ backgroundImage: "url(" + philosophyImg + ")" }}
-      >
-        <h2 className="text-white">{heading}</h2>
-      </div>
+      <Parallax img={philosophyImg} heading={heading} />
       <section className="container py-3" id="philosophy">
         <div className="row">
           <div className="col-12 col-sm-4 m-auto">
