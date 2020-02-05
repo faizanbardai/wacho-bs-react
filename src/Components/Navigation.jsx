@@ -11,13 +11,18 @@ export default function Navigation() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <NavDropdown title="About" id="basic-nav-dropdown">
+          {/* <NavDropdown title="About" id="basic-nav-dropdown">
             <NavDropdown.Item href="#philosophy">Philosophy</NavDropdown.Item>
             <NavDropdown.Item href="#sociology">Sociology</NavDropdown.Item>
             <NavDropdown.Item href="#my-dream">My Dream</NavDropdown.Item>
             <NavDropdown.Item href="#about-me">About Me</NavDropdown.Item>
             <NavDropdown.Item href="#my-team">My team</NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown> */}
+          <Nav.Link href="#about-me">About Me</Nav.Link>
+          <Nav.Link href="#wines">Wines</Nav.Link>
+          <Nav.Link href="#philosophy">Philosophy</Nav.Link>
+          <Nav.Link href="#sociology">Sociology</Nav.Link>
+          <Nav.Link href="#my-dream">My Dream</Nav.Link>
           <Nav.Link href="#contact">Contact</Nav.Link>
         </Nav>
       </Navbar.Collapse>

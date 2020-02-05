@@ -63,7 +63,7 @@ class Products extends Component {
       amountToCharge
     } = this.props;
     return (
-      <>
+      <div id="wines">
         {/* Products */}
         {fetchInProgress ? (
           // Loader
@@ -276,7 +276,7 @@ class Products extends Component {
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal>
-      </>
+      </div>
     );
   }
   componentDidMount = async () => {
