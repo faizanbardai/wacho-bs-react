@@ -19,7 +19,7 @@ export default function AboutMe(props) {
       >
         <h2 className="text-white">{heading}</h2>
       </div> */}
-      <Row className="d-flex justify-content-center">
+      <Row className="d-flex justify-content-center mx-0">
         <Col xs="12" md="4" className="pb-3 text-center">
           <Image
             src={aboutMeImg}
