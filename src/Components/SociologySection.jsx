@@ -18,7 +18,7 @@ export default function SociologySection(props) {
       >
         <h2 className="text-white">{heading}</h2>
       </div>
-      <section className="container py-3" id="sociology">
+      <section className="container py-3">
         <p>{paragraph1}</p>
         <p>{paragraph2}</p>
         <p>{paragraph3}</p>

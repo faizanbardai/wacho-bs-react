@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import Helmet from "react-helmet";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import BannarText from "./BannarText";
+import AboutMe from "./AboutMe";
 
 export default function Home(props) {
   return (
@@ -17,6 +18,8 @@ export default function Home(props) {
       <Products />
       <PhilosophySection section={props.content.philosophySection} />
       <SociologySection section={props.content.sociologySection} />
+      <AboutMe section={props.content.aboutMe} />
+
       <Footer />
     </div>
   );
