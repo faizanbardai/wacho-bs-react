@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import BannarText from "../Components/BannarText";
 
 export default function MyTeamSection({ section }) {
@@ -12,24 +12,32 @@ export default function MyTeamSection({ section }) {
     faizanBardai
   } = section;
   return (
-    <div id="my-team" className="container">
+    <section id="my-team">
       <BannarText text={heading} />
-      <div className="d-flex justify-content-center mb-4">
-        {[
-          paataBokeria,
-          ivaneNareklishvili,
-          daliborOsička,
-          eugeniWunsch,
-          faizanBardai
-        ].map(teamMember => (
-          <Card className="mr-2" style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>{teamMember.name}</Card.Title>
-              <Card.Text>{teamMember.about}</Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </div>
-    </div>
+      <Container fluid>
+        <div className="mb-4 d-flex justify-content-center">
+          {[
+            paataBokeria,
+            ivaneNareklishvili,
+            daliborOsička,
+            eugeniWunsch,
+            faizanBardai
+          ].map(teamMember => (
+            <Card
+              className="col mb-2 mr-2"
+              style={{
+                minWidth: "200px",
+                maxWidth: "200px"
+              }}
+            >
+              <Card.Body>
+                <Card.Title>{teamMember.name}</Card.Title>
+                <Card.Text>{teamMember.about}</Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 }
