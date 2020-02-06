@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import faizanBardaiImg from "../img/faizan-bardai.jpg";
 import BannarText from "../Components/BannarText";
 
 export default function MyTeamSection({ section }) {
@@ -24,7 +23,6 @@ export default function MyTeamSection({ section }) {
           faizanBardai
         ].map(teamMember => (
           <Card className="mr-2" style={{ width: "18rem" }}>
-            {/* <Card.Img variant="top" src={faizanBardaiImg} /> */}
             <Card.Body>
               <Card.Title>{teamMember.name}</Card.Title>
               <Card.Text>{teamMember.about}</Card.Text>
