@@ -15,7 +15,7 @@ export default function MyTeamSection({ section }) {
     <section id="my-team">
       <BannarText text={heading} />
       <Container fluid>
-        <div className="mb-4 d-flex justify-content-center">
+        <div className="row mb-4 d-flex justify-content-center">
           {[
             paataBokeria,
             ivaneNareklishvili,
@@ -26,8 +26,8 @@ export default function MyTeamSection({ section }) {
             <Card
               className="col mb-2 mr-2"
               style={{
-                minWidth: "200px",
-                maxWidth: "200px"
+                minWidth: "250px",
+                maxWidth: "250px"
               }}
             >
               <Card.Body>
