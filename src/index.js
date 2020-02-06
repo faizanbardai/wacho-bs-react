@@ -7,13 +7,13 @@ import {
   Switch
 } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-import Admin from "./Components/Admin/Admin";
+import Admin from "./Pages/Admin/Admin";
 import Header from "./Components/Header";
 import contentInEnglish from "../src/en.json";
 import contentInGerman from "../src/de.json";
 import store from "./store";
 import { Provider } from "react-redux";
-import PageNotFound from "./Components/PageNotFound/PageNotFound";
+import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 
 ReactDOM.render(
   <Provider store={store}>
