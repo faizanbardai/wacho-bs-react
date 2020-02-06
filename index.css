@@ -12,6 +12,12 @@ body {
   color: #222831;
 }
 
+#about-me,
+#wines,
+#my-team {
+  padding-top: 60px;
+}
+
 header {
   width: 100%;
   height: 100vh;

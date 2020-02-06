@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cd3692531da6b64a229a4a6fb5db3017",
+    "revision": "38acf326d2795336c295f9508def8e80",
     "url": "/wacho-bs-react/index.html"
   },
   {
-    "revision": "44f61e602029fa9a3e62",
+    "revision": "9067d3de15fc9c962c7c",
     "url": "/wacho-bs-react/static/css/2.f5298653.chunk.css"
   },
   {
-    "revision": "e775e5d2b88a41900607",
+    "revision": "93f1589e32414d694314",
     "url": "/wacho-bs-react/static/css/main.a75e03a5.chunk.css"
   },
   {
-    "revision": "44f61e602029fa9a3e62",
-    "url": "/wacho-bs-react/static/js/2.2f51af57.chunk.js"
+    "revision": "9067d3de15fc9c962c7c",
+    "url": "/wacho-bs-react/static/js/2.8d645536.chunk.js"
   },
   {
     "revision": "54f6e2d0ef339619d0a432be7ac0ab75",
-    "url": "/wacho-bs-react/static/js/2.2f51af57.chunk.js.LICENSE"
+    "url": "/wacho-bs-react/static/js/2.8d645536.chunk.js.LICENSE"
   },
   {
-    "revision": "e775e5d2b88a41900607",
-    "url": "/wacho-bs-react/static/js/main.771da6e4.chunk.js"
+    "revision": "93f1589e32414d694314",
+    "url": "/wacho-bs-react/static/js/main.95a6c8a4.chunk.js"
   },
   {
     "revision": "3b8f7b08cf7c59ff240e",
@@ -34,6 +34,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "f3bd35847b680f75e6e308f8096a83f2",
     "url": "/wacho-bs-react/static/media/header-loop.f3bd3584.mp4"
+  },
+  {
+    "revision": "ad029bf895494ee7d43899ec09dac2c0",
+    "url": "/wacho-bs-react/static/media/myDreamImg.ad029bf8.jpg"
   },
   {
     "revision": "fa68be640195acd26efce34234a87f34",
