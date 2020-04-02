@@ -22,8 +22,9 @@ export default function MyTeamSection({ section }) {
             daliborOsička,
             eugeniWunsch,
             faizanBardai
-          ].map(teamMember => (
+          ].map((teamMember, index) => (
             <Card
+              key={index}
               className="col mb-2 mr-2"
               style={{
                 minWidth: "250px",
