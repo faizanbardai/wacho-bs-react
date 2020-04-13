@@ -8,24 +8,24 @@ import {
   Button,
   OverlayTrigger,
   Tooltip,
-  Modal
+  Modal,
 } from "react-bootstrap";
 import Checkout from "./Checkout";
 import Loader from "react-loader-spinner";
 import { increaseQty, decreaseQty, loadProducts } from "../actions";
 import ProductToast from "./ProductToast";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     products: state.products.productsFromServer,
     fetchInProgress: state.products.fetchInProgress,
-    amountToCharge: state.products.amountToCharge
+    amountToCharge: state.products.amountToCharge,
   };
 };
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   loadProducts: () => dispatch(loadProducts()),
-  increaseQty: _id => dispatch(increaseQty(_id)),
-  decreaseQty: _id => dispatch(decreaseQty(_id))
+  increaseQty: (_id) => dispatch(increaseQty(_id)),
+  decreaseQty: (_id) => dispatch(decreaseQty(_id)),
 });
 
 class Products extends Component {
@@ -37,15 +37,17 @@ class Products extends Component {
         image: null,
         message: null,
         title: null,
-        qty: 0
+        qty: 0,
       },
-      selectedProduct: {}
+      selectedProduct: {},
     };
   }
-  handleShowProductDetail = id => {
+  handleShowProductDetail = (id) => {
     this.setState({
       showProductDetail: true,
-      selectedProduct: this.props.products.find(product => product._id === id)
+      selectedProduct: this.props.products.find(
+        (product) => product._id === id
+      ),
     });
   };
   handleCloseProductDetail = () => {
@@ -60,7 +62,7 @@ class Products extends Component {
       decreaseQty,
       products,
       fetchInProgress,
-      amountToCharge
+      amountToCharge,
     } = this.props;
     return (
       <div id="wines">
@@ -78,7 +80,7 @@ class Products extends Component {
             <ProductToast propsForToast={propsForToast} />
             <div className="row wine-products d-flex justify-content-center bg-white pt-4">
               {products &&
-                products.map(product => (
+                products.map((product) => (
                   <div key={product._id} className="px-2 pb-2">
                     <Button
                       variant="outline-info"
@@ -88,7 +90,7 @@ class Products extends Component {
                     >
                       {product.title}
                     </Button>
-                    <Card style={{ width: "180px" }}>
+                    <Card className="border-0" style={{ width: "180px" }}>
                       <div className="ml-auto">
                         {product.qty > 0 && (
                           <>
@@ -115,8 +117,8 @@ class Products extends Component {
                                         image: product.image,
                                         message: `${product.title} added to cart!`,
                                         title: product.title,
-                                        qty: product.qty
-                                      }
+                                        qty: product.qty,
+                                      },
                                     });
                                   }}
                                   className="rounded-circle m-2"
@@ -143,8 +145,8 @@ class Products extends Component {
                                         image: product.image,
                                         message: `${product.title} removed from cart!`,
                                         title: product.title,
-                                        qty: product.qty
-                                      }
+                                        qty: product.qty,
+                                      },
                                     });
                                   }}
                                   className="rounded-circle m-2"
@@ -179,8 +181,8 @@ class Products extends Component {
                                       image: product.image,
                                       message: `${product.title} added to cart!`,
                                       title: product.title,
-                                      qty: product.qty
-                                    }
+                                      qty: product.qty,
+                                    },
                                   });
                                 }}
                                 className="rounded-circle m-2"
@@ -192,7 +194,6 @@ class Products extends Component {
                         )}
                       </div>
                       <Card.Img variant="top" src={product.image} />
-                      <Card.Body></Card.Body>
                       <Card.Footer className="px-2 text-center">
                         <div className="border border-info rounded-pill mb-2">
                           € {parseFloat(product.price).toFixed(2)}{" "}
