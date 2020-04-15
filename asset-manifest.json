@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/wacho-bs-react/static/css/main.a75e03a5.chunk.css",
-    "main.js": "/wacho-bs-react/static/js/main.76334578.chunk.js",
-    "main.js.map": "/wacho-bs-react/static/js/main.76334578.chunk.js.map",
+    "main.js": "/wacho-bs-react/static/js/main.b7629314.chunk.js",
+    "main.js.map": "/wacho-bs-react/static/js/main.b7629314.chunk.js.map",
     "runtime-main.js": "/wacho-bs-react/static/js/runtime-main.79b3f8fc.js",
     "runtime-main.js.map": "/wacho-bs-react/static/js/runtime-main.79b3f8fc.js.map",
     "static/css/2.f5298653.chunk.css": "/wacho-bs-react/static/css/2.f5298653.chunk.css",
-    "static/js/2.bd18b57e.chunk.js": "/wacho-bs-react/static/js/2.bd18b57e.chunk.js",
-    "static/js/2.bd18b57e.chunk.js.map": "/wacho-bs-react/static/js/2.bd18b57e.chunk.js.map",
+    "static/js/2.1e07bf34.chunk.js": "/wacho-bs-react/static/js/2.1e07bf34.chunk.js",
+    "static/js/2.1e07bf34.chunk.js.map": "/wacho-bs-react/static/js/2.1e07bf34.chunk.js.map",
     "index.html": "/wacho-bs-react/index.html",
-    "precache-manifest.592de4e5a6245e1d96779d692b15d6a5.js": "/wacho-bs-react/precache-manifest.592de4e5a6245e1d96779d692b15d6a5.js",
+    "precache-manifest.e64dfc16cc75e920c2b2ff08314fb92c.js": "/wacho-bs-react/precache-manifest.e64dfc16cc75e920c2b2ff08314fb92c.js",
     "service-worker.js": "/wacho-bs-react/service-worker.js",
     "static/css/2.f5298653.chunk.css.map": "/wacho-bs-react/static/css/2.f5298653.chunk.css.map",
     "static/css/main.a75e03a5.chunk.css.map": "/wacho-bs-react/static/css/main.a75e03a5.chunk.css.map",
-    "static/js/2.bd18b57e.chunk.js.LICENSE": "/wacho-bs-react/static/js/2.bd18b57e.chunk.js.LICENSE",
+    "static/js/2.1e07bf34.chunk.js.LICENSE": "/wacho-bs-react/static/js/2.1e07bf34.chunk.js.LICENSE",
     "static/media/aboutMeImg.jpg": "/wacho-bs-react/static/media/aboutMeImg.09f4b4ec.jpg",
     "static/media/header-loop.mp4": "/wacho-bs-react/static/media/header-loop.f3bd3584.mp4",
     "static/media/myDreamImg.jpg": "/wacho-bs-react/static/media/myDreamImg.ad029bf8.jpg",
@@ -23,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.79b3f8fc.js",
     "static/css/2.f5298653.chunk.css",
-    "static/js/2.bd18b57e.chunk.js",
+    "static/js/2.1e07bf34.chunk.js",
     "static/css/main.a75e03a5.chunk.css",
-    "static/js/main.76334578.chunk.js"
+    "static/js/main.b7629314.chunk.js"
   ]
 }
