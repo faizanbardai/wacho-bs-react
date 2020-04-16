@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Route,
   BrowserRouter,
-  Switch
+  Switch,
 } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Admin from "./Pages/Admin/Admin";
@@ -18,21 +18,25 @@ import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Switch>
-          <Route path="/admin" component={Admin} />
-          <Route path="/en" exact>
-            <Home lang="en" content={contentInEnglish} />
-          </Route>
-          <Route path="/de" exact>
-            <Home lang="de" content={contentInGerman} />
-          </Route>
-          <Route path="/" exact>
-            <Header />
-          </Route>
-          <Route component={PageNotFound} />
-        </Switch>
-      </BrowserRouter>
+      {false ? (
+        <div>Hi</div>
+      ) : (
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <Switch>
+            <Route path="/admin" component={Admin} />
+            <Route path="/en" exact>
+              <Home lang="en" content={contentInEnglish} />
+            </Route>
+            <Route path="/de" exact>
+              <Home lang="de" content={contentInGerman} />
+            </Route>
+            <Route path="/" exact>
+              <Header />
+            </Route>
+            <Route component={PageNotFound} />
+          </Switch>
+        </BrowserRouter>
+      )}
     </Router>
   </Provider>,
   document.getElementById("root")
