@@ -1,11 +1,26 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
+import { api_login } from "../APIs";
 
 export default function LoginModal() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const response = api_login({ username: email, password });
+    switch (response.status) {
+      case 200:
+        // OK
+        const token = await response.json();
+        localStorage.setItem("token", token);
+        break;
+      case 401:
+        // unauthorized
+        localStorage.removeItem("token");
+        break;
+      default:
+        console.log("Some error");
+    }
   };
 
   return (
