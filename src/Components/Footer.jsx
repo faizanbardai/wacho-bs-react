@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="col-12 col-lg-6">
             <div className="row pb-2">
               <div className="col-1">
-                <i className="fa fa-map-marker text-light"></i>
+                <i class="fas fa-map-marker-alt"></i>
               </div>
               <div className="col-11">
                 <p className="text-light">
@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
             <div className="row pb-2">
               <div className="col-1">
-                <i className="fa fa-envelope text-light"></i>
+                <i className="fas fa-envelope"></i>
               </div>
               <div className="col-11">
                 <a
@@ -49,7 +49,7 @@ export default function Footer() {
             </div>
             <div className="row pb-2">
               <div className="col-1">
-                <i className="fa fa-phone text-light"></i>
+                <i className="fas fa-phone"></i>
               </div>
               <div className="col-11">
                 <address>
