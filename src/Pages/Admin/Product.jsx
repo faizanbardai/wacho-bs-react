@@ -9,7 +9,7 @@ import {
   Col,
   Form,
   Button,
-  Badge
+  Badge,
 } from "react-bootstrap";
 
 export default class Product extends Component {
@@ -17,10 +17,10 @@ export default class Product extends Component {
     super(props);
     this.state = this.props.product;
   }
-  handleChange = event => {
-    this.setState({ quantity: event.target.value });
+  handleChange = (event) => {
+    this.setState({ qty: event.target.value });
   };
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     let { inventory, _id, quantity } = this.state;
     inventory = parseInt(inventory) + parseInt(quantity);
@@ -30,14 +30,14 @@ export default class Product extends Component {
       fetch(baseURL + "/products", {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: _id, inventory })
+        body: JSON.stringify({ id: _id, inventory }),
       })
-        .then(response => {
+        .then((response) => {
           return response.json();
         })
-        .then(myJson => {
+        .then((myJson) => {
           this.setState({ quantity: "", inventory });
         });
     } catch (error) {
@@ -45,7 +45,7 @@ export default class Product extends Component {
     }
   };
   render() {
-    const { title, image, inventory, quantity } = this.state;
+    const { title, image, inventory, qty } = this.state;
     return (
       <Row>
         <div className="col-4 px-0 mb-2">
@@ -60,7 +60,7 @@ export default class Product extends Component {
               <ListGroupItem>Current Inventory: {inventory}</ListGroupItem>
               <ListGroupItem>
                 <Form
-                  onSubmit={e => {
+                  onSubmit={(e) => {
                     this.handleSubmit(e);
                   }}
                 >
@@ -69,7 +69,7 @@ export default class Product extends Component {
                       <Col xs={12} className="mb-2">
                         <Form.Control
                           onChange={this.handleChange}
-                          value={quantity}
+                          value={qty}
                           type="number"
                           min="1"
                           max="20"
