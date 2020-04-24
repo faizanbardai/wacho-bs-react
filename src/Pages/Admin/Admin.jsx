@@ -23,7 +23,11 @@ export default class Admin extends Component {
         </div>
       </Container>
     ) : (
-      <LoginModal />
+      <LoginModal
+        setAuthorized={() => {
+          this.setState({ isAuthorized: true });
+        }}
+      />
     );
   }
   componentDidMount = async () => {
