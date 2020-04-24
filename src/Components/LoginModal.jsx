@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { api_login } from "../APIs";
 
-export default function LoginModal() {
+export default function LoginModal(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = api_login({ username: email, password });
+    const response = await api_login({ username: email, password });
     switch (response.status) {
       case 200:
         // OK
         const token = await response.json();
-        localStorage.setItem("token", token);
+        localStorage.setItem("token", token.token);
+        props.setAuthorized();
         break;
       case 401:
         // unauthorized
@@ -55,6 +56,7 @@ export default function LoginModal() {
               onChange={(e) => setPassword(e.target.value)}
               className="mb-3 form-control"
               placeholder="Password"
+              autoComplete="on"
               required
             />
 
