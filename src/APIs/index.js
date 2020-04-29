@@ -24,3 +24,32 @@ export const api_all_products = async (token) => {
     },
   });
 };
+
+export const api_add_wine = async (wine, token) => {
+  return await fetch(baseURL + "/products", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+    body: JSON.stringify(wine),
+  });
+};
+
+export const api_updateImage = async (body) => {
+  return await fetch("https://api.imgbb.com/1/upload", {
+    method: "POST",
+    body: body,
+  });
+};
+
+export const api_update_wine = async (wine, token) => {
+  return await fetch(baseURL + "/products", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+    body: JSON.stringify(wine),
+  });
+};

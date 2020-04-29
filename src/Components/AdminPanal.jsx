@@ -14,7 +14,7 @@ export default class AdminPanal extends Component {
         <div className="row">
           {this.state.products &&
             this.state.products.map((product) => (
-              <Products product={product} />
+              <Products key={product._id} product={product} />
             ))}
         </div>
       </Container>
