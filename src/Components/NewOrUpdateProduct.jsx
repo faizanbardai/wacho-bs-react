@@ -3,7 +3,10 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { api_add_wine, api_updateImage, api_update_wine } from "../APIs";
 
 export default class NewOrUpdateProduct extends Component {
-  state = { show: false, product: { title: "", price: "" } };
+  state = {
+    show: false,
+    product: { title: "", price: "", inventory: "", description: "" },
+  };
   handleClose = () => this.setState({ show: false });
   handleShow = () => this.setState({ show: true });
   handleInputChange = (event) => {
@@ -37,12 +40,13 @@ export default class NewOrUpdateProduct extends Component {
         },
         localStorage.getItem("token")
       );
-      const updatedWineWithImageURL = respWineWithImage.json();
-      console.log(updatedWineWithImageURL);
+      const updatedWineWithImageURL = await respWineWithImage.json();
+      this.props.refreshProducts(updatedWineWithImageURL);
+      this.handleClose();
     }
   };
   render() {
-    const { title, price } = this.state.product;
+    const { title, price, inventory, description } = this.state.product;
 
     return (
       <div>
@@ -91,6 +95,35 @@ export default class NewOrUpdateProduct extends Component {
                   min="10"
                   max="100"
                   step="0.05"
+                  required
+                  onChange={this.handleInputChange}
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Inventory</Form.Label>
+                <Form.Control
+                  type="number"
+                  name="inventory"
+                  value={inventory}
+                  placeholder="eg. 30"
+                  min="0"
+                  max="500"
+                  step="1"
+                  required
+                  onChange={this.handleInputChange}
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  name="description"
+                  rows="5"
+                  value={description}
+                  placeholder="eg. Some info about the wine."
+                  required
                   onChange={this.handleInputChange}
                 />
               </Form.Group>
