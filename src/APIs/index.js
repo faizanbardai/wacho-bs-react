@@ -24,7 +24,6 @@ export const api_all_products = async (token) => {
     },
   });
 };
-
 export const api_add_wine = async (wine, token) => {
   return await fetch(baseURL + "/products", {
     method: "POST",
@@ -35,14 +34,12 @@ export const api_add_wine = async (wine, token) => {
     body: JSON.stringify(wine),
   });
 };
-
 export const api_updateImage = async (body) => {
   return await fetch("https://api.imgbb.com/1/upload", {
     method: "POST",
     body: body,
   });
 };
-
 export const api_update_wine = async (wine, token) => {
   return await fetch(baseURL + "/products", {
     method: "PUT",
@@ -51,5 +48,15 @@ export const api_update_wine = async (wine, token) => {
       Authorization: "Bearer " + token,
     },
     body: JSON.stringify(wine),
+  });
+};
+export const api_active_wine = async (_id, token) => {
+  return await fetch(baseURL + "/products/active", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+    body: JSON.stringify({ _id }),
   });
 };

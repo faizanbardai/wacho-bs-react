@@ -20,7 +20,41 @@ export default class NewOrUpdateProduct extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     if (this.props.product) {
-      alert("You are trying to update product.");
+      const response = await api_update_wine(
+        this.state.product,
+        localStorage.getItem("token")
+      );
+      switch (response.status) {
+        case 200:
+          //OK
+          const updatedProduct = await response.json();
+          if (this.state.picture) {
+            const data = new FormData();
+            data.append("key", "f4249a89674c3ba51752e0c729919897");
+            data.append("image", this.state.picture);
+            data.append("name", updatedProduct._id);
+            const responseImage = await api_updateImage(data);
+            const updatedProductImage = await responseImage.json();
+            const respUpdatedWineWithImage = await api_update_wine(
+              {
+                _id: updatedProduct._id,
+                image: updatedProductImage.data.url,
+              },
+              localStorage.getItem("token")
+            );
+            const updatedWineWithImageURL = await respUpdatedWineWithImage.json();
+            //This need to be worked on
+            this.props.updateProductList(updatedWineWithImageURL);
+          } else {
+            //This need to be worked on
+            this.props.updateProductList(updatedProduct);
+          }
+          break;
+        default:
+          console.log("Some error");
+      }
+
+      this.handleClose();
     } else {
       const response = await api_add_wine(
         this.state.product,
@@ -41,7 +75,7 @@ export default class NewOrUpdateProduct extends Component {
         localStorage.getItem("token")
       );
       const updatedWineWithImageURL = await respWineWithImage.json();
-      this.props.refreshProducts(updatedWineWithImageURL);
+      this.props.addNewProduct(updatedWineWithImageURL);
       this.handleClose();
     }
   };
@@ -50,11 +84,16 @@ export default class NewOrUpdateProduct extends Component {
 
     return (
       <div>
-        <Button block variant="primary" onClick={this.handleShow}>
+        <Button
+          block
+          className="rounded-pill"
+          variant="primary"
+          onClick={this.handleShow}
+        >
           {this.props.product ? "Update" : "Add new wine"}
         </Button>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal size="xl" show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>{this.props.product ? title : "New Wine"}</Modal.Title>
           </Modal.Header>
