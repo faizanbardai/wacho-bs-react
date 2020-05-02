@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import { api_add_wine, api_updateImage, api_update_wine } from "../APIs";
+import {
+  api_add_wine,
+  api_updateImage,
+  api_update_wine,
+  api_delete_wine,
+} from "../APIs";
 
 export default class NewOrUpdateProduct extends Component {
   state = {
@@ -80,10 +85,10 @@ export default class NewOrUpdateProduct extends Component {
     }
   };
   render() {
-    const { title, price, inventory, description } = this.state.product;
+    const { _id, title, price, inventory, description } = this.state.product;
 
     return (
-      <div>
+      <>
         <Button
           block
           className="rounded-pill"
@@ -92,7 +97,6 @@ export default class NewOrUpdateProduct extends Component {
         >
           {this.props.product ? "Update" : "Add new wine"}
         </Button>
-
         <Modal size="xl" show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>{this.props.product ? title : "New Wine"}</Modal.Title>
@@ -167,13 +171,24 @@ export default class NewOrUpdateProduct extends Component {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
-                Save
-              </Button>
+              <div className="d-flex justify-content-between">
+                <Button
+                  onClick={() => {
+                    api_delete_wine(_id, localStorage.getItem("token"));
+                    this.handleClose();
+                  }}
+                  variant="outline-danger"
+                >
+                  Delete
+                </Button>
+                <Button variant="primary" type="submit">
+                  Save
+                </Button>
+              </div>
             </Form>
           </Modal.Body>
         </Modal>
-      </div>
+      </>
     );
   }
   componentDidMount() {
