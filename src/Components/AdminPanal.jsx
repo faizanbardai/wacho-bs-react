@@ -4,9 +4,13 @@ import Products from "./Product";
 import NewOrUpdateProduct from "./NewOrUpdateProduct";
 
 export default class AdminPanal extends Component {
-  state = {};
+  state = { products: [] };
   updateProductList = (updatedProduct) => {
-    //Update the product list after product update.
+    console.log(updatedProduct);
+    const products = this.state.products.map((product) => {
+      return product._id === updatedProduct._id ? updatedProduct : product;
+    });
+    this.setState({ products });
   };
   addNewProduct = (newProduct) => {
     this.setState((state) => {
@@ -22,14 +26,13 @@ export default class AdminPanal extends Component {
           <NewOrUpdateProduct addNewProduct={this.addNewProduct} />
         </div>
         <div className="row">
-          {this.state.products &&
-            this.state.products.map((product) => (
-              <Products
-                key={product._id}
-                product={product}
-                updateProductList={this.updateProductList}
-              />
-            ))}
+          {this.state.products.map((product) => (
+            <Products
+              key={product._id}
+              product={product}
+              updateProductList={this.updateProductList}
+            />
+          ))}
         </div>
       </Container>
     );

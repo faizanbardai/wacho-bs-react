@@ -4,24 +4,23 @@ import { Card, Button } from "react-bootstrap";
 import NewOrUpdateProduct from "./NewOrUpdateProduct";
 
 export default class Product extends Component {
-  constructor(props) {
-    super(props);
-    this.state = this.props.product;
-  }
-
+  handleSubmit = async (_id) => {
+    let updatedProduct = await api_active_wine(
+      _id,
+      localStorage.getItem("token")
+    );
+    updatedProduct = await updatedProduct.json();
+    this.props.updateProductList(updatedProduct);
+  };
   render() {
-    const { _id, title, image, active } = this.state;
+    const { _id, title, image, active } = this.props.product;
     return (
       <div className="col-12 col-md-3 mb-3">
         <Button
           variant={active ? "primary" : "outline-info"}
           block
           className="rounded-pill my-2"
-          onClick={() => {
-            console.log(_id);
-            console.log(localStorage.getItem("token"));
-            api_active_wine(_id, localStorage.getItem("token"));
-          }}
+          onClick={() => this.handleSubmit(_id)}
         >
           {title}
         </Button>
@@ -29,7 +28,7 @@ export default class Product extends Component {
           <Card.Img variant="top" src={image} />
         </Card>
         <NewOrUpdateProduct
-          product={this.state}
+          product={this.props.product}
           updateProductList={this.props.updateProductList}
         />
       </div>

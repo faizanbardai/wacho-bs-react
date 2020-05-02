@@ -19,7 +19,7 @@ export default function Home(props) {
       <Navigation />
       <AboutMe section={props.content.aboutMe} />
       <BannarText text="Be smart, just drink the best and fuck the rest!" />
-      {true ? <ComingSoon /> : <Products />}
+      {false ? <ComingSoon /> : <Products />}
       <MyTeamSection section={props.content.myTeam} />
       <PhilosophySection section={props.content.philosophySection} />
       <SociologySection section={props.content.sociologySection} />
