@@ -6,7 +6,6 @@ import NewOrUpdateProduct from "./NewOrUpdateProduct";
 export default class AdminPanal extends Component {
   state = { products: [] };
   updateProductList = (updatedProduct) => {
-    console.log(updatedProduct);
     const products = this.state.products.map((product) => {
       return product._id === updatedProduct._id ? updatedProduct : product;
     });
@@ -15,6 +14,12 @@ export default class AdminPanal extends Component {
   addNewProduct = (newProduct) => {
     this.setState((state) => {
       const products = state.products.concat(newProduct);
+      return { products };
+    });
+  };
+  removeDeletedProduct = (_id) => {
+    this.setState((state) => {
+      const products = state.products.filter((product) => product._id !== _id);
       return { products };
     });
   };
@@ -31,6 +36,7 @@ export default class AdminPanal extends Component {
               key={product._id}
               product={product}
               updateProductList={this.updateProductList}
+              removeDeletedProduct={this.removeDeletedProduct}
             />
           ))}
         </div>

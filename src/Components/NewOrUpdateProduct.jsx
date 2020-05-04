@@ -10,6 +10,7 @@ import {
 export default class NewOrUpdateProduct extends Component {
   state = {
     show: false,
+    confirmDelete: false,
     product: { title: "", price: "", inventory: "", description: "" },
   };
   handleClose = () => this.setState({ show: false });
@@ -48,10 +49,8 @@ export default class NewOrUpdateProduct extends Component {
               localStorage.getItem("token")
             );
             const updatedWineWithImageURL = await respUpdatedWineWithImage.json();
-            //This need to be worked on
             this.props.updateProductList(updatedWineWithImageURL);
           } else {
-            //This need to be worked on
             this.props.updateProductList(updatedProduct);
           }
           break;
@@ -172,15 +171,28 @@ export default class NewOrUpdateProduct extends Component {
               </Form.Group>
 
               <div className="d-flex justify-content-between">
-                <Button
-                  onClick={() => {
-                    api_delete_wine(_id, localStorage.getItem("token"));
-                    this.handleClose();
-                  }}
-                  variant="outline-danger"
-                >
-                  Delete
-                </Button>
+                {this.props.product &&
+                  (this.state.confirmDelete ? (
+                    <Button
+                      onClick={() => {
+                        api_delete_wine(_id, localStorage.getItem("token"));
+                        this.props.removeDeletedProduct(_id);
+                        this.handleClose();
+                      }}
+                      variant="outline-danger"
+                    >
+                      Sure?
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={() => {
+                        this.setState({ confirmDelete: true });
+                      }}
+                      variant="outline-danger"
+                    >
+                      Delete
+                    </Button>
+                  ))}
                 <Button variant="primary" type="submit">
                   Save
                 </Button>

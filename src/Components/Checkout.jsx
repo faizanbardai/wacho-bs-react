@@ -4,19 +4,18 @@ import { PayPalButton } from "react-paypal-button-v2";
 import { Card, Table } from "react-bootstrap";
 import { Badge } from "react-bootstrap";
 
-const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({
-  loadProducts: () => dispatch(loadProducts())
+const mapStateToProps = (state) => state;
+const mapDispatchToProps = (dispatch) => ({
+  loadProducts: () => dispatch(loadProducts()),
 });
 const loadProducts = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     const baseURL = process.env.REACT_APP_BASE_URL;
-    const responseProducts = await fetch(baseURL + "/products");
+    const responseProducts = await fetch(baseURL + "/products?active=1");
     const products = await responseProducts.json();
-    console.log("Testing with checkout");
     dispatch({
       type: "LOAD_PRODUCTS",
-      payload: products
+      payload: products,
     });
   };
 };
@@ -42,10 +41,7 @@ class Checkout extends Component {
                 <tr>
                   <td onClick={() => this.props.loadProducts()}>Subtotal: </td>
                   <td>
-                    €{" "}
-                    {Number.parseFloat(amountToCharge)
-                      .toFixed(2)
-                      .toString()}
+                    € {Number.parseFloat(amountToCharge).toFixed(2).toString()}
                   </td>
                 </tr>
                 <tr>
@@ -75,12 +71,12 @@ class Checkout extends Component {
               createOrder={(data, actions) => {
                 let productPurchased = [];
                 products
-                  .filter(product => product.qty > 0)
-                  .map(product =>
+                  .filter((product) => product.qty > 0)
+                  .map((product) =>
                     productPurchased.push({
                       _id: product._id,
                       title: product.title,
-                      qty: product.qty
+                      qty: product.qty,
                     })
                   );
 
@@ -91,15 +87,15 @@ class Checkout extends Component {
                       amount: {
                         value: Number.parseFloat(amountToCharge + 5.9)
                           .toFixed(2)
-                          .toString()
-                      }
-                    }
-                  ]
+                          .toString(),
+                      },
+                    },
+                  ],
                 });
               }}
               onApprove={(data, actions) => {
                 // This function captures the funds from the transaction.
-                return actions.order.capture().then(async function(details) {
+                return actions.order.capture().then(async function (details) {
                   // This function shows a transaction success message to your buyer.
                   alert(
                     "Transaction completed by " + details.payer.name.given_name
@@ -107,36 +103,33 @@ class Checkout extends Component {
                   // Call your server to save the transaction
                   let productPurchased = [];
                   products
-                    .filter(product => product.qty > 0)
-                    .map(product =>
+                    .filter((product) => product.qty > 0)
+                    .map((product) =>
                       productPurchased.push({
                         _id: product._id,
                         title: product.title,
-                        qty: product.qty
+                        qty: product.qty,
                       })
                     );
                   const baseURL = process.env.REACT_APP_BASE_URL;
                   await fetch(baseURL + "/purchases", {
                     method: "POST",
                     headers: {
-                      "content-type": "application/json"
+                      "content-type": "application/json",
                     },
                     body: JSON.stringify({
                       orderID: data.orderID,
                       totalAmount: amountToCharge,
                       products: productPurchased,
-                      captureDetail: details
-                    })
+                      payer: details.payer.email_address,
+                      deliveryAddress:
+                        details.purchase_units[0].shipping.address,
+                      transactionCode:
+                        details.purchase_units[0].payments.captures[0].id,
+                      captureDetail: details,
+                    }),
                   });
                   await reloadProducts();
-                  console.log("after loading");
-                  // return fetch("/paypal-transaction-complete", {
-                  //   method: "POST",
-                  //   headers: {
-                  //     "content-type": "application/json"
-                  //   },
-                  //   body: JSON.stringify({ orderID: data.orderID })
-                  // });
                 });
               }}
             />

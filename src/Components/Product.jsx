@@ -30,6 +30,7 @@ export default class Product extends Component {
         <NewOrUpdateProduct
           product={this.props.product}
           updateProductList={this.props.updateProductList}
+          removeDeletedProduct={this.props.removeDeletedProduct}
         />
       </div>
     );
