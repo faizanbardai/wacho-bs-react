@@ -10,7 +10,6 @@ import BannarText from "../../Components/BannarText";
 import AboutMe from "../../Components/AboutMe";
 import MyDreamSection from "../../Components/MyDreamSection";
 import MyTeamSection from "../../Components/MyTeamSection";
-import ComingSoon from "../../Components/ComingSoon";
 
 export default function Home(props) {
   return (
@@ -19,7 +18,7 @@ export default function Home(props) {
       <Navigation />
       <AboutMe section={props.content.aboutMe} />
       <BannarText text="Be smart, just drink the best and fuck the rest!" />
-      {false ? <ComingSoon /> : <Products />}
+      <Products />
       <MyTeamSection section={props.content.myTeam} />
       <PhilosophySection section={props.content.philosophySection} />
       <SociologySection section={props.content.sociologySection} />

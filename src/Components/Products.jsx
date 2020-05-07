@@ -14,6 +14,7 @@ import Checkout from "./Checkout";
 import Loader from "react-loader-spinner";
 import { increaseQty, decreaseQty, loadProducts } from "../actions";
 import ProductToast from "./ProductToast";
+import ComingSoon from "../Components/ComingSoon";
 
 const mapStateToProps = (state) => {
   return {
@@ -67,7 +68,7 @@ class Products extends Component {
     return (
       <div id="wines">
         {/* Products */}
-        {fetchInProgress ? (
+        {fetchInProgress && (
           // Loader
           <div
             className="d-flex justify-content-center align-items-center"
@@ -75,7 +76,8 @@ class Products extends Component {
           >
             <Loader type="Puff" color="#00BFFF" height={100} width={100} />
           </div>
-        ) : (
+        )}
+        {!fetchInProgress && products && products.length > 0 ? (
           <section className="container-fluid mb-3">
             <ProductToast propsForToast={propsForToast} />
             <div className="row wine-products d-flex justify-content-center bg-white pt-4">
@@ -222,6 +224,8 @@ class Products extends Component {
               {amountToCharge > 0 && <Checkout />}
             </div>
           </section>
+        ) : (
+          <ComingSoon />
         )}
 
         <Modal
