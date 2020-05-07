@@ -39,7 +39,7 @@ class Checkout extends Component {
             <Table hover borderless size="sm">
               <tbody>
                 <tr>
-                  <td onClick={() => this.props.loadProducts()}>Subtotal: </td>
+                  <td>Subtotal: </td>
                   <td>
                     € {Number.parseFloat(amountToCharge).toFixed(2).toString()}
                   </td>
