@@ -1,4 +1,7 @@
 const baseURL = process.env.REACT_APP_BASE_URL;
+export const api_loadActiveProducts = async () => {
+  return await fetch(baseURL + "/products?active=1");
+};
 export const api_login = async (body) => {
   return await fetch(baseURL + "/admin/login", {
     method: "POST",
