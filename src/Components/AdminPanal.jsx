@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { api_getPurchases } from "../APIs";
 import { Container } from "react-bootstrap";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import Moment from "react-moment";
 import Products from "./Product";
 import NewOrUpdateProduct from "./NewOrUpdateProduct";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class AdminPanal extends Component {
   state = { products: [], purchases: null };
@@ -29,9 +31,16 @@ export default class AdminPanal extends Component {
   render() {
     const { purchases } = this.state;
     return (
-      <Container className="my-2">
-        <div className="mb-2">
+      <Container fluid className="my-2">
+        <div className="mb-2 d-flex justify-content-between">
           <NewOrUpdateProduct addNewProduct={this.addNewProduct} />
+          <button
+            type="button"
+            className="mx-2 btn btn-outline-danger rounded-circle"
+            onClick={this.props.logout}
+          >
+            <FontAwesomeIcon icon={faSignOutAlt} />
+          </button>
         </div>
         <div className="row">
           {this.state.products.map((product) => (

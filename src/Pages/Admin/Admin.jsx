@@ -9,10 +9,14 @@ export default class Admin extends Component {
     super(props);
     this.state = { isAuthorized: false };
   }
+  logout = () => {
+    localStorage.removeItem("token");
+    this.setState({ isAuthorized: false });
+  };
 
   render() {
     return this.state.isAuthorized ? (
-      <AdminPanal />
+      <AdminPanal logout={this.logout} />
     ) : (
       <LoginModal
         setAuthorized={() => {

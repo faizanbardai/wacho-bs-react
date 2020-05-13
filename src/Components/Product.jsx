@@ -15,7 +15,7 @@ export default class Product extends Component {
   render() {
     const { _id, title, image, active } = this.props.product;
     return (
-      <div className="col-12 col-md-3 mb-3">
+      <div className="col-12 col-md-2 col-lg-2 mb-3">
         <Button
           variant={active ? "primary" : "outline-info"}
           block
