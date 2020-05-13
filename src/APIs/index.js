@@ -73,3 +73,11 @@ export const api_delete_wine = async (_id, token) => {
     body: JSON.stringify({ _id }),
   });
 };
+export const api_getPurchases = async (token) => {
+  return await fetch(baseURL + "/purchases", {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  });
+};
