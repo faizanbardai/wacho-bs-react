@@ -18,23 +18,17 @@ export default function Footer() {
             ></iframe>
           </div>
           <div className="col-12 col-lg-6">
-            <div className="row pb-2">
-              <div className="col-1">
-                <i className="fas fa-map-marker-alt"></i>
-              </div>
-              <div className="col-11">
-                <p className="text-light">
-                  Goldenes Vlies M.M.M.
-                  <br />
-                  Regerplatz 5, 81541 Munich Germany
-                </p>
+            <div className="d-flex justify-content-start align-items-center">
+              <i className="fas fa-map-marker-alt pr-3"></i>
+              <div className="text-light">
+                Goldenes Vlies M.M.M.
+                <br />
+                Regerplatz 5, 81541 Munich Germany
               </div>
             </div>
-            <div className="row pb-2">
-              <div className="col-1">
-                <i className="fas fa-envelope"></i>
-              </div>
-              <div className="col-11">
+            <div className="d-flex justify-content-start align-items-center">
+              <i className="fas fa-envelope pr-3"></i>
+              <div>
                 <a
                   href="mailto:goldenes.vlies.mmm@gmail.com"
                   className="text-light"
@@ -47,18 +41,15 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            <div className="row pb-2">
-              <div className="col-1">
-                <i className="fas fa-phone"></i>
-              </div>
-              <div className="col-11">
-                <address>
-                  <a href="tel:+4917669521145" className="text-light">
-                    +49-176-69521145
-                  </a>
-                </address>
-                <Link to="/admin">Admin Access</Link>
-              </div>
+            <div className="d-flex justify-content-start align-items-center">
+              <i className="fas fa-phone pr-3"></i>
+              <a href="tel:+4917669521145" className="text-light">
+                +49-176-69521145
+              </a>
+            </div>
+            <div className="d-flex justify-content-start align-items-center">
+              <i className="fas fa-user-cog pr-3"></i>
+              <Link to="/admin">Admin Access</Link>
             </div>
           </div>
         </div>

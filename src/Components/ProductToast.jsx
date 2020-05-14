@@ -3,14 +3,14 @@ import { Toast } from "react-bootstrap";
 import { connect } from "react-redux";
 import { hideProductToast } from "../actions";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    showProductToast: state.products.showProductToast
+    showProductToast: state.products.showProductToast,
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  hideProductToast: () => dispatch(hideProductToast())
+const mapDispatchToProps = (dispatch) => ({
+  hideProductToast: () => dispatch(hideProductToast()),
 });
 
 function ProductToast({ propsForToast, showProductToast, hideProductToast }) {
@@ -25,12 +25,12 @@ function ProductToast({ propsForToast, showProductToast, hideProductToast }) {
       aria-live="polite"
       aria-atomic="true"
       style={{
-        zIndex: 1,
+        zIndex: showProductToast ? 1 : 0,
         position: "fixed",
         bottom: "10px",
         left: "10px",
         minHeight: "100px",
-        minWidth: "300px"
+        minWidth: "300px",
       }}
     >
       <Toast.Header>
