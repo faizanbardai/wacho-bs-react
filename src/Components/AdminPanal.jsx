@@ -52,21 +52,21 @@ export default class AdminPanal extends Component {
             />
           ))}
         </div>
-        <table className="table table-hover table-sm">
+        <table className="table-responsive-sm table-bordered table-hover">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Date</th>
-              <th>Transaction Code</th>
-              <th>Product List</th>
-              <th>Amount (without shipping cost)</th>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col">Transaction Code</th>
+              <th scope="col">Product List</th>
+              <th scope="col">Amount (without shipping cost)</th>
             </tr>
           </thead>
           <tbody>
             {purchases &&
               purchases.map((purchase, index) => (
                 <tr key={purchase._id}>
-                  <td>{index + 1}</td>
+                  <th scope="row">{index + 1}</th>
                   <td>
                     <Moment format="DD-MM-YYYY HH:mm">
                       {purchase.createdAt}
@@ -75,18 +75,15 @@ export default class AdminPanal extends Component {
                   <td>{purchase.transactionCode}</td>
                   <td>
                     {purchase.products.map((product, index) => (
-                      <div
-                        key={index}
-                        className="d-flex justify-content-between mb-2"
-                      >
-                        {product.title}
+                      <div key={index}>
                         <span className="badge badge-primary badge-pill mr-3">
                           {product.qty}
                         </span>
+                        {product.title}
                       </div>
                     ))}
                   </td>
-                  <td>{purchase.totalAmount}</td>
+                  <td className="text-right">{purchase.totalAmount}</td>
                 </tr>
               ))}
           </tbody>
