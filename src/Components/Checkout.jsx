@@ -85,9 +85,22 @@ class Checkout extends Component {
                   purchase_units: [
                     {
                       amount: {
-                        value: Number.parseFloat(amountToCharge)
-                          .toFixed(2)
-                          .toString(),
+                        // value: {
+                        currency_code: "EUR",
+                        value: (
+                          parseFloat(amountToCharge) + parseFloat(5.9)
+                        ).toFixed(2),
+                        breakdown: {
+                          item_total: {
+                            currency_code: "EUR",
+                            value: amountToCharge,
+                          },
+                          shipping: {
+                            currency_code: "EUR",
+                            value: 5.9,
+                          },
+                        },
+                        // },
                       },
                     },
                   ],
@@ -97,28 +110,7 @@ class Checkout extends Component {
                 if (data.shipping_address.country_code !== "DE") {
                   return actions.reject();
                 }
-                return actions.order.patch([
-                  {
-                    op: "replace",
-                    path: "/purchase_units/@reference_id=='default'/amount",
-                    value: {
-                      currency_code: "EUR",
-                      value: (
-                        parseFloat(amountToCharge) + parseFloat(5.9)
-                      ).toFixed(2),
-                      breakdown: {
-                        item_total: {
-                          currency_code: "EUR",
-                          value: amountToCharge,
-                        },
-                        shipping: {
-                          currency_code: "EUR",
-                          value: 5.9,
-                        },
-                      },
-                    },
-                  },
-                ]);
+                return actions.resolve();
               }}
               onApprove={(data, actions) => {
                 // This function captures the funds from the transaction.
