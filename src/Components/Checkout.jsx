@@ -85,7 +85,7 @@ class Checkout extends Component {
                   purchase_units: [
                     {
                       amount: {
-                        value: Number.parseFloat(amountToCharge + 5.9)
+                        value: Number.parseFloat(amountToCharge)
                           .toFixed(2)
                           .toString(),
                       },
@@ -93,12 +93,44 @@ class Checkout extends Component {
                   ],
                 });
               }}
+              onShippingChange={(data, actions) => {
+                if (data.shipping_address.country_code !== "DE") {
+                  return actions.reject();
+                }
+                return actions.order.patch([
+                  {
+                    op: "replace",
+                    path: "/purchase_units/@reference_id=='default'/amount",
+                    value: {
+                      currency_code: "EUR",
+                      value: (
+                        parseFloat(amountToCharge) + parseFloat(5.9)
+                      ).toFixed(2),
+                      breakdown: {
+                        item_total: {
+                          currency_code: "EUR",
+                          value: amountToCharge,
+                        },
+                        shipping: {
+                          currency_code: "EUR",
+                          value: 5.9,
+                        },
+                      },
+                    },
+                  },
+                ]);
+              }}
               onApprove={(data, actions) => {
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(async function (details) {
                   // This function shows a transaction success message to your buyer.
                   alert(
-                    "Transaction completed by " + details.payer.name.given_name
+                    "Transaction completed by " +
+                      details.payer.name.given_name +
+                      ". The items will be delivered in 3-5 working days. Please contact us at +49-1766-9521145 for any further information. " +
+                      "Your transaction ID is: " +
+                      details.purchase_units[0].payments.captures[0].id +
+                      "."
                   );
                   // Call your server to save the transaction
                   let productPurchased = [];
