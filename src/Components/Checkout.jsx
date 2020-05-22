@@ -160,6 +160,9 @@ class Checkout extends Component {
               }}
             />
           </Card.Body>
+          <Card.Footer className="text-muted text-center">
+            Pay with cryptocurrency (coming soon)
+          </Card.Footer>
         </Card>
       </div>
     );
