@@ -47,7 +47,6 @@ class Checkout extends Component {
                 <tr>
                   <td>Shipping: </td>
                   <td>€ 5.90</td>
-                  {/* Flat Rate Shipping Costs:  */}
                 </tr>
                 <tr>
                   <td>Total</td>
@@ -63,6 +62,9 @@ class Checkout extends Component {
               </tbody>
             </Table>
           </Card.Body>
+          <Card.Footer className="text-muted text-right">
+            19% VAT included
+          </Card.Footer>
         </Card>
         <hr />
         <Card style={{ width: "350px" }} className="mb-4">
