@@ -87,7 +87,7 @@ class Checkout extends Component {
                         // value: {
                         currency_code: "EUR",
                         value: (
-                          parseFloat(amountToCharge) + parseFloat(5.9)
+                          parseFloat(amountToCharge) + parseFloat(0)
                         ).toFixed(2),
                         breakdown: {
                           item_total: {
@@ -95,8 +95,9 @@ class Checkout extends Component {
                             value: amountToCharge,
                           },
                           shipping: {
+                            //Set shipping to Eur 5.90
                             currency_code: "EUR",
-                            value: 5.9,
+                            value: 0,
                           },
                         },
                         // },
