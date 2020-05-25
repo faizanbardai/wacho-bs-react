@@ -52,10 +52,7 @@ class Checkout extends Component {
                   <td>Total</td>
                   <td>
                     <Badge variant="info">
-                      €{" "}
-                      {Number.parseFloat(amountToCharge + 5.9)
-                        .toFixed(2)
-                        .toString()}
+                      € {(parseFloat(amountToCharge) + 5.9).toFixed(2)}
                     </Badge>
                   </td>
                 </tr>

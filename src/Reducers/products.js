@@ -6,10 +6,10 @@ export default (state = {}, action) => {
       return {
         productsFromServer: action.payload,
         fetchInProgress: false,
-        showProductToast: false
+        showProductToast: false,
       };
     case "INCREASE_QTY":
-      product = products.find(product => product._id === action.payload);
+      product = products.find((product) => product._id === action.payload);
       product.qty++;
       product.inventory--;
       value = products.reduce(
@@ -19,11 +19,11 @@ export default (state = {}, action) => {
       return {
         ...state,
         productsFromServer: products,
-        amountToCharge: value,
-        showProductToast: true
+        amountToCharge: parseFloat(value).toFixed(2),
+        showProductToast: true,
       };
     case "DECREASE_QTY":
-      product = products.find(product => product._id === action.payload);
+      product = products.find((product) => product._id === action.payload);
       product.qty--;
       product.inventory++;
       value = products.reduce(
@@ -33,13 +33,13 @@ export default (state = {}, action) => {
       return {
         ...state,
         productsFromServer: products,
-        amountToCharge: value,
-        showProductToast: true
+        amountToCharge: parseFloat(value).toFixed(2),
+        showProductToast: true,
       };
     case "HIDE_PRODUCT_TOAST":
       return {
         ...state,
-        showProductToast: false
+        showProductToast: false,
       };
     default:
       return state;
