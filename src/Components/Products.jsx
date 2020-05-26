@@ -250,7 +250,7 @@ class Products extends Component {
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
-                    <ul className="list-group list-group-flush">
+                    {/* <ul className="list-group list-group-flush">
                       <li id="variety" className="list-group-item">
                         Variety: {selectedProduct.variety}
                       </li>
@@ -263,15 +263,15 @@ class Products extends Component {
                       <li id="taste" className="list-group-item">
                         The taste is {selectedProduct.taste}
                       </li>
-                    </ul>
+                    </ul> */}
                     <p id="description" className="card-text">
                       {selectedProduct.description}
                     </p>
-                    <p className="card-text">
+                    {/* <p className="card-text">
                       <small id="alcohol" className="text-muted">
                         Alcohol: {selectedProduct.alcohol}
                       </small>
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>

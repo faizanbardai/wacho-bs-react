@@ -6,7 +6,7 @@ export default function Navigation() {
   return (
     <Navbar bg="dark" variant="dark" expand="md" sticky="top">
       <Link to="/">
-        <Navbar.Brand>Wines N’ Roses</Navbar.Brand>
+        <Navbar.Brand>Wine e-boutique</Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
