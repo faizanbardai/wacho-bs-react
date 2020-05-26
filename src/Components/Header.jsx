@@ -27,7 +27,7 @@ export default function Header() {
             >
               <FontAwesomeIcon icon={faVolumeOff} />
             </div> */}
-            <h1 className="display-3">Hautain Wine</h1>
+            <h1 className="display-3">Wine e-boutique</h1>
             <p className="lead mb-0">
               Epic | Ethic | Exceptional | Estraordinary | Exclusive
             </p>
@@ -37,7 +37,7 @@ export default function Header() {
                   style={{
                     minWidth: "80px",
                     maxWidth: "400px",
-                    width: "200px"
+                    width: "200px",
                   }}
                   className="mx-2 mb-4"
                   size="lg"
@@ -51,7 +51,7 @@ export default function Header() {
                   style={{
                     minWidth: "80px",
                     maxWidth: "400px",
-                    width: "200px"
+                    width: "200px",
                   }}
                   className="mx-2 mb-4"
                   size="lg"
