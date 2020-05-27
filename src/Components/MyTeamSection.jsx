@@ -32,12 +32,14 @@ export default function MyTeamSection({ section }) {
                 maxWidth: "250px",
               }}
             >
-              <Card.Img
-                style={{ height: "200px", width: "200px" }}
-                className="rounded-circle mt-2"
-                variant="top"
-                src={teamMember.img}
-              />
+              <div className="d-flex justify-content-center">
+                <Card.Img
+                  style={{ height: "200px", width: "200px" }}
+                  className="rounded-circle mt-2"
+                  variant="top"
+                  src={teamMember.img}
+                />
+              </div>
               <Card.Body>
                 <Card.Title>{teamMember.name}</Card.Title>
                 <Card.Text>{teamMember.about}</Card.Text>
