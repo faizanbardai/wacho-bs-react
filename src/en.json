@@ -33,23 +33,28 @@
     "heading": "It is Great global distributed high level professionals.",
     "paataBokeria": {
       "name": "Paata Bokeria",
-      "about": "Czech lawyer and Vintner"
+      "about": "Czech lawyer and Vintner",
+      "img": "https://i.ibb.co/DzP1rk0/paata-Bokeria.jpg"
     },
     "ivaneNareklishvili": {
       "name": "Ivane Nareklishvili",
-      "about": "His family has been making magic wines in clay pots (qvevri) since 1850"
+      "about": "His family has been making magic wines in clay pots (qvevri) since 1850",
+      "img": "https://i.ibb.co/YdVRQNb/ivane-Nareklishvili.jpg"
     },
     "daliborOsička": {
       "name": "Emiliano Subacchi",
-      "about": "Brilliant italian  winemaker"
+      "about": "Brilliant italian  winemaker",
+      "img": "https://i.ibb.co/6Yj1K8p/emiliano-Subacchi.jpg"
     },
     "eugeniWunsch": {
       "name": "Eugeni Wunsch",
-      "about": "German lawyer supporting smart wine contracts"
+      "about": "German lawyer supporting smart wine contracts",
+      "img": "https://i.ibb.co/mzWnJnL/eugeni-Wunsch.jpg"
     },
     "faizanBardai": {
       "name": "Faizan Bardai",
-      "about": "Super-programmer and crazy of cricket"
+      "about": "Super-programmer and crazy of cricket",
+      "img": "https://i.ibb.co/YTR5vC2/faizan-Bardai.jpg"
     }
   }
 }

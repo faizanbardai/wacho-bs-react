@@ -9,8 +9,9 @@ export default function MyTeamSection({ section }) {
     ivaneNareklishvili,
     daliborOsička,
     eugeniWunsch,
-    faizanBardai
+    faizanBardai,
   } = section;
+
   return (
     <section id="my-team">
       <BannarText text={heading} />
@@ -21,16 +22,22 @@ export default function MyTeamSection({ section }) {
             ivaneNareklishvili,
             daliborOsička,
             eugeniWunsch,
-            faizanBardai
+            faizanBardai,
           ].map((teamMember, index) => (
             <Card
               key={index}
               className="col mb-2 mr-2"
               style={{
                 minWidth: "250px",
-                maxWidth: "250px"
+                maxWidth: "250px",
               }}
             >
+              <Card.Img
+                style={{ height: "200px", width: "200px" }}
+                className="rounded-circle mt-2"
+                variant="top"
+                src={teamMember.img}
+              />
               <Card.Body>
                 <Card.Title>{teamMember.name}</Card.Title>
                 <Card.Text>{teamMember.about}</Card.Text>

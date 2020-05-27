@@ -33,23 +33,28 @@
     "heading": "Es handelt sich um weltweit verteilte hochrangige Experten.",
     "paataBokeria": {
       "name": "Paata Bokeria",
-      "about": "Tschechischer Anwalt und Winzer"
+      "about": "Tschechischer Anwalt und Winzer",
+      "img": "https://i.ibb.co/DzP1rk0/paata-Bokeria.jpg"
     },
     "ivaneNareklishvili": {
       "name": "Ivane Nareklishvili",
-      "about": "Seine Familie stellt seit 1850 magische Weine in Tontöpfen her"
+      "about": "Seine Familie stellt seit 1850 magische Weine in Tontöpfen her",
+      "img": "https://i.ibb.co/YdVRQNb/ivane-Nareklishvili.jpg"
     },
     "daliborOsička": {
       "name": "Emiliano Subacchi",
-      "about": "Genialer italienischer Winzer"
+      "about": "Genialer italienischer Winzer",
+      "img": "https://i.ibb.co/6Yj1K8p/emiliano-Subacchi.jpg"
     },
     "eugeniWunsch": {
       "name": "Eugeni Wunsch",
-      "about": "Deutscher rechtsanwalt, unterstützte smart wine verträge"
+      "about": "Deutscher rechtsanwalt, unterstützte smart wine verträge",
+      "img": "https://i.ibb.co/mzWnJnL/eugeni-Wunsch.jpg"
     },
     "faizanBardai": {
       "name": "Faizan Bardai",
-      "about": "Superprogrammierer und Cricketverrückter"
+      "about": "Superprogrammierer und Cricketverrückter",
+      "img": "https://i.ibb.co/YTR5vC2/faizan-Bardai.jpg"
     }
   }
 }
