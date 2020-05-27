@@ -214,7 +214,7 @@ class Products extends Component {
                           )}
                         </div>
                         <div className="border border-info rounded-pill">
-                          In-stock: {product.inventory}
+                          {this.props.section.available}
                         </div>
                       </Card.Footer>
                     </Card>
