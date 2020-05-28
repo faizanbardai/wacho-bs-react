@@ -142,12 +142,12 @@ class Checkout extends Component {
                       orderID: data.orderID,
                       totalAmount: amountToCharge,
                       products: productPurchased,
-                      payer: details.payer.email_address,
-                      deliveryAddress:
-                        details.purchase_units[0].shipping.address,
-                      transactionCode:
-                        details.purchase_units[0].payments.captures[0].id,
-                      captureDetail: details,
+                      // payer: details.payer.email_address,
+                      // deliveryAddress:
+                      //   details.purchase_units[0].shipping.address,
+                      // transactionCode:
+                      //   details.purchase_units[0].payments.captures[0].id,
+                      // captureDetail: details,
                     }),
                   });
                   await reloadProducts();
