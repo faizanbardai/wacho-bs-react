@@ -17,6 +17,7 @@ export default function Navigation() {
           <Nav.Link href="#philosophy">Philosophy</Nav.Link>
           <Nav.Link href="#sociology">Sociology</Nav.Link>
           <Nav.Link href="#my-dream">My Dream</Nav.Link>
+          <Nav.Link href="#your-rights">Your Rights</Nav.Link>
           <Nav.Link href="#contact">Contact</Nav.Link>
         </Nav>
       </Navbar.Collapse>

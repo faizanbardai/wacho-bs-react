@@ -10,6 +10,7 @@ import BannarText from "../../Components/BannarText";
 import AboutMe from "../../Components/AboutMe";
 import MyDreamSection from "../../Components/MyDreamSection";
 import MyTeamSection from "../../Components/MyTeamSection";
+import YourRights from "../../Components/YourRights";
 
 export default function Home(props) {
   return (
@@ -23,6 +24,7 @@ export default function Home(props) {
       <PhilosophySection section={props.content.philosophySection} />
       <SociologySection section={props.content.sociologySection} />
       <MyDreamSection section={props.content.myDream} />
+      <YourRights />
       <Footer />
     </>
   );
