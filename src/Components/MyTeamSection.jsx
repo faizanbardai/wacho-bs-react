@@ -5,6 +5,7 @@ import BannarText from "../Components/BannarText";
 export default function MyTeamSection({ section }) {
   const {
     heading,
+    teimurazGonjilaschwili,
     paataBokeria,
     ivaneNareklishvili,
     daliborOsička,
@@ -18,6 +19,7 @@ export default function MyTeamSection({ section }) {
       <Container fluid>
         <div className="row mb-4 d-flex justify-content-center">
           {[
+            teimurazGonjilaschwili,
             paataBokeria,
             ivaneNareklishvili,
             daliborOsička,
