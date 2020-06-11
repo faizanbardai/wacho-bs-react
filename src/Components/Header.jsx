@@ -27,7 +27,7 @@ export default function Header() {
             >
               <FontAwesomeIcon icon={faVolumeOff} />
             </div> */}
-            <h1 className="display-3">Wine e-boutique</h1>
+            <h1 className="display-3">Wine N’Art e-boutique</h1>
             <p className="lead mb-0">
               Epic | Ethic | Exceptional | Estraordinary | Exclusive
             </p>
