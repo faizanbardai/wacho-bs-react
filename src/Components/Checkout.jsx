@@ -103,12 +103,13 @@ class Checkout extends Component {
                   ],
                 });
               }}
-              onShippingChange={(data, actions) => {
-                if (data.shipping_address.country_code !== "DE") {
-                  return actions.reject();
-                }
-                return actions.resolve();
-              }}
+              // Open for World. Initially was only for Germany (DE)
+              // onShippingChange={(data, actions) => {
+              //   if (data.shipping_address.country_code !== "DE") {
+              //     return actions.reject();
+              //   }
+              //   return actions.resolve();
+              // }}
               onApprove={(data, actions) => {
                 // This function captures the funds from the transaction.
                 return actions.order.capture().then(async function (details) {
