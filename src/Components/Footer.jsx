@@ -35,10 +35,6 @@ export default function Footer() {
                 >
                   goldenes.vlies.mmm@gmail.com
                 </a>
-                <br />
-                <a href="mailto:office@vignehautain.com" className="text-light">
-                  office@vignehautain.com
-                </a>
               </div>
             </div>
             <div className="d-flex justify-content-start align-items-center">
