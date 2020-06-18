@@ -16,7 +16,7 @@ import { Provider } from "react-redux";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 
 function initializeReactGA() {
-  ReactGA.initialize("UA-123791717-1");
+  ReactGA.initialize("UA-170042260-1");
   ReactGA.pageview("/homepage");
 }
 
