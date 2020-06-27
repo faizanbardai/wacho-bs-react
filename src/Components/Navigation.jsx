@@ -1,16 +1,32 @@
+import React, { useState } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import React from "react";
 
 export default function Navigation() {
+  const [navExpanded, setNavExpanded] = useState(false);
   return (
-    <Navbar bg="dark" variant="dark" expand="md" sticky="top">
+    <Navbar
+      id="navbar"
+      bg="dark"
+      variant="dark"
+      expand="md"
+      sticky="top"
+      onToggle={() => {
+        setNavExpanded(!navExpanded);
+      }}
+      expanded={navExpanded}
+    >
       <Link to="/">
         <Navbar.Brand>Wine N’Art</Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+        <Nav
+          className="mr-auto"
+          onSelect={() => {
+            setNavExpanded(false);
+          }}
+        >
           <Nav.Link href="#about-me">About Me</Nav.Link>
           <Nav.Link href="#wines">Wines</Nav.Link>
           <Nav.Link href="#my-team">My Team</Nav.Link>
