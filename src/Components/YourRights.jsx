@@ -189,8 +189,11 @@ export default function YourRights() {
               Wirkung leisten. Für die Zahlungsabwicklung über PayPal gelten –
               ergänzend zu unseren AGB – die AGB und die Datenschutzerklärung
               von PayPal. Weitere Informationen und die vollständigen AGB von
-              PayPal zum Rechnungskauf finden Sie hier:
-              https://www.paypal.com/de/webapps/mpp/ua/pui-terms?locale.x=de_DE.
+              PayPal zum Rechnungskauf finden Sie{" "}
+              <a href="https://www.paypal.com/de/webapps/mpp/ua/pui-terms?locale.x=de_DE">
+                hier
+              </a>
+              .
             </p>
             <b>Barzahlung bei Abholung</b>
             <p>Sie zahlen den Rechnungsbetrag bei der Abholung bar.</p>
