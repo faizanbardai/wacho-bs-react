@@ -9,8 +9,8 @@ export default function Navigation() {
       id="navbar"
       bg="dark"
       variant="dark"
-      expand="md"
-      sticky="top"
+      expand="lg"
+      fixed="top"
       onToggle={() => {
         setNavExpanded(!navExpanded);
       }}

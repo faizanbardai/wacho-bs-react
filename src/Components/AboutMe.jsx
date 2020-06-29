@@ -9,7 +9,7 @@ export default function AboutMe(props) {
     paragraph2,
     paragraph3,
     paragraph4,
-    paragraph5
+    paragraph5,
   } = props.section;
   return (
     <Container id="about-me">
