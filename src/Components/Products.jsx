@@ -172,9 +172,9 @@ class Products extends Component {
                             }
                           >
                             <span className="d-inline-block">
-                              <Button
-                                variant="outline-info"
-                                size="sm"
+                              <button
+                                type="button"
+                                className="btn btn-outline-info rounded-pill mb-2"
                                 disabled={
                                   product.inventory === 0 ? true : false
                                 }
@@ -189,22 +189,21 @@ class Products extends Component {
                                     },
                                   });
                                 }}
-                                className="rounded-circle m-2"
                               >
-                                <FontAwesomeIcon icon={faCartPlus} />
-                              </Button>
+                                <FontAwesomeIcon icon={faCartPlus} /> €
+                                {parseFloat(product.price).toFixed(2)}
+                              </button>
                             </span>
                           </OverlayTrigger>
                         )}
                       </div>
                       <Card.Img variant="top" src={product.image} />
                       <Card.Footer className="px-2 text-center">
-                        <div className="border border-info rounded-pill mb-2">
-                          € {parseFloat(product.price).toFixed(2)}{" "}
-                          {product.qty > 0 && (
+                        {product.qty > 0 && (
+                          <div className="border border-info rounded-pill mb-2">
                             <span>
-                              {" "}
-                              x {product.qty} ={" "}
+                              € {parseFloat(product.price).toFixed(2)} x{" "}
+                              {product.qty} ={" "}
                               <Badge pill variant="info">
                                 €{" "}
                                 {(
@@ -213,11 +212,13 @@ class Products extends Component {
                                 ).toFixed(2)}
                               </Badge>
                             </span>
-                          )}
-                        </div>
-                        <div className="border border-info rounded-pill">
-                          {this.props.section.available}
-                        </div>
+                          </div>
+                        )}
+                        {product.qty === 0 && (
+                          <div className="border border-info rounded-pill">
+                            {this.props.section.available}
+                          </div>
+                        )}
                       </Card.Footer>
                     </Card>
                     <hr />
