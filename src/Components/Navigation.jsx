@@ -27,8 +27,8 @@ export default function Navigation() {
             setNavExpanded(false);
           }}
         >
-          <Nav.Link href="#about-me">About Me</Nav.Link>
           <Nav.Link href="#wines">Wines</Nav.Link>
+          <Nav.Link href="#about-me">About Me</Nav.Link>
           <Nav.Link href="#my-team">My Team</Nav.Link>
           <Nav.Link href="#philosophy">Philosophy</Nav.Link>
           <Nav.Link href="#sociology">Sociology</Nav.Link>

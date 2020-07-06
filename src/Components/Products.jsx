@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import BannarText from "../Components/BannarText";
 import {
   Badge,
   Card,
@@ -67,6 +68,7 @@ class Products extends Component {
     } = this.props;
     return (
       <div id="wines">
+        <BannarText text="Be smart, just drink the best and fuck the rest!" />
         {/* Products */}
         {fetchInProgress && (
           // Loader
