@@ -10,6 +10,8 @@ export default function MyTeamSection({ section }) {
     ivaneNareklishvili,
     daliborOsička,
     eugeniWunsch,
+    katerynaChiganova,
+    annaAivazian,
     faizanBardai,
   } = section;
 
@@ -24,6 +26,8 @@ export default function MyTeamSection({ section }) {
             ivaneNareklishvili,
             daliborOsička,
             eugeniWunsch,
+            katerynaChiganova,
+            annaAivazian,
             faizanBardai,
           ].map((teamMember, index) => (
             <Card
