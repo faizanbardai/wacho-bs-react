@@ -81,3 +81,7 @@ export const api_getPurchases = async (token) => {
     },
   });
 };
+
+export const api_loadActiveArt = async () => {
+  return await fetch(baseURL + "/art?active=1");
+};

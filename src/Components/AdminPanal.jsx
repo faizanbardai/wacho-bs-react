@@ -5,6 +5,7 @@ import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import Moment from "react-moment";
 import Products from "./Product";
 import NewOrUpdateProduct from "./NewOrUpdateProduct";
+import NewOrUpdateArt from "./NewOrUpdateArt";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class AdminPanal extends Component {
@@ -34,6 +35,7 @@ export default class AdminPanal extends Component {
       <Container fluid className="my-2">
         <div className="mb-2 d-flex justify-content-between">
           <NewOrUpdateProduct addNewProduct={this.addNewProduct} />
+          <NewOrUpdateArt addNewArt={this.addNewArt} />
           <button
             type="button"
             className="mx-2 btn btn-outline-danger rounded-circle"
