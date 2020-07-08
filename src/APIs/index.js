@@ -81,7 +81,17 @@ export const api_getPurchases = async (token) => {
     },
   });
 };
-
 export const api_loadActiveArt = async () => {
   return await fetch(baseURL + "/art?active=1");
+};
+
+export const api_add_art = async (art, token) => {
+  return await fetch(baseURL + "/art", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+    body: JSON.stringify(art),
+  });
 };

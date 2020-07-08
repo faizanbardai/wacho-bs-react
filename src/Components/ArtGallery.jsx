@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Gallery from "react-grid-gallery";
 import { api_loadActiveArt } from "../APIs";
 
-export default function Art() {
+export default function ArtGallery() {
   const [images, setImages] = useState();
   useEffect(() => {
     const apiCall = async () => {

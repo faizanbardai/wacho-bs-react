@@ -10,7 +10,7 @@ import AboutMe from "../../Components/AboutMe";
 import MyDreamSection from "../../Components/MyDreamSection";
 import MyTeamSection from "../../Components/MyTeamSection";
 import YourRights from "../../Components/YourRights";
-import Art from "../../Components/Art";
+import ArtGallery from "../../Components/ArtGallery";
 
 export default function Home(props) {
   return (
@@ -18,7 +18,7 @@ export default function Home(props) {
       <Helmet htmlAttributes={{ lang: props.lang }} />
       <Navigation />
       <Products section={props.content.products} />
-      <Art />
+      <ArtGallery />
       <AboutMe section={props.content.aboutMe} />
       <MyTeamSection section={props.content.myTeam} />
       <PhilosophySection section={props.content.philosophySection} />
