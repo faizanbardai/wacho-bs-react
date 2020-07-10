@@ -95,7 +95,7 @@ class Products extends Component {
                       {product.title}
                     </Button>
                     <Card className="border-0" style={{ width: "180px" }}>
-                      <div className="ml-auto">
+                      <div className="d-flex justify-content-end">
                         {product.qty > 0 && (
                           <>
                             <OverlayTrigger
@@ -171,29 +171,25 @@ class Products extends Component {
                               </Tooltip>
                             }
                           >
-                            <span className="d-inline-block">
-                              <button
-                                type="button"
-                                className="btn btn-outline-info rounded-pill mb-2"
-                                disabled={
-                                  product.inventory === 0 ? true : false
-                                }
-                                onClick={() => {
-                                  increaseQty(product._id);
-                                  this.setState({
-                                    propsForToast: {
-                                      image: product.image,
-                                      message: `${product.title} added to cart!`,
-                                      title: product.title,
-                                      qty: product.qty,
-                                    },
-                                  });
-                                }}
-                              >
-                                <FontAwesomeIcon icon={faCartPlus} /> €
-                                {parseFloat(product.price).toFixed(2)}
-                              </button>
-                            </span>
+                            <button
+                              type="button"
+                              className="btn btn-block btn-outline-info rounded-pill mb-2"
+                              disabled={product.inventory === 0 ? true : false}
+                              onClick={() => {
+                                increaseQty(product._id);
+                                this.setState({
+                                  propsForToast: {
+                                    image: product.image,
+                                    message: `${product.title} added to cart!`,
+                                    title: product.title,
+                                    qty: product.qty,
+                                  },
+                                });
+                              }}
+                            >
+                              <FontAwesomeIcon icon={faCartPlus} /> €
+                              {parseFloat(product.price).toFixed(2)}
+                            </button>
                           </OverlayTrigger>
                         )}
                       </div>
