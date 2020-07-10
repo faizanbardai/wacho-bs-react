@@ -17,7 +17,7 @@ export default function Navigation() {
       expanded={navExpanded}
     >
       <Link to="/">
-        <Navbar.Brand>Wine N’Art</Navbar.Brand>
+        <Navbar.Brand>Wines N' Colors</Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -28,6 +28,7 @@ export default function Navigation() {
           }}
         >
           <Nav.Link href="#wines">Wines</Nav.Link>
+          <Nav.Link href="#art">Art</Nav.Link>
           <Nav.Link href="#about-me">About Me</Nav.Link>
           <Nav.Link href="#my-team">My Team</Nav.Link>
           <Nav.Link href="#philosophy">Philosophy</Nav.Link>
