@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Gallery from "react-grid-gallery";
 import { api_loadActiveArt } from "../APIs";
+import BannarText from "./BannarText";
 
 export default function ArtGallery() {
   const [images, setImages] = useState();
@@ -14,8 +15,17 @@ export default function ArtGallery() {
   }, []);
 
   return (
-    <div className="container-fluid vh-100">
-      {images && <Gallery images={images} />}
+    <div id="art">
+      {images && (
+        <>
+          <div className="vh-100">
+            <BannarText text="... & color your mind!" />
+            <div className="container">
+              <Gallery images={images} />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
