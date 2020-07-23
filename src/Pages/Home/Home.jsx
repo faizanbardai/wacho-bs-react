@@ -11,6 +11,7 @@ import MyDreamSection from "../../Components/MyDreamSection";
 import MyTeamSection from "../../Components/MyTeamSection";
 import YourRights from "../../Components/YourRights";
 import ArtGallery from "../../Components/ArtGallery";
+import Checkout2 from "../../Components/Checkout2";
 
 export default function Home(props) {
   return (
@@ -19,6 +20,7 @@ export default function Home(props) {
       <Navigation />
       <Products section={props.content.products} />
       <ArtGallery />
+      <Checkout2 />
       <AboutMe section={props.content.aboutMe} />
       <MyTeamSection section={props.content.myTeam} />
       <PhilosophySection section={props.content.philosophySection} />

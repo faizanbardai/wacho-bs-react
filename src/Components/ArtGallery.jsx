@@ -14,6 +14,18 @@ export default function ArtGallery() {
     apiCall();
   }, []);
 
+  const onSelectImage = (index, image) => {
+    const images2 = images.slice();
+    const img = images2[index];
+    if (img.hasOwnProperty("isSelected")) {
+      img.isSelected = !img.isSelected;
+    } else {
+      img.isSelected = true;
+      console.log(img._id);
+    }
+    setImages(images2);
+  };
+
   return (
     <div id="art">
       {images && (
@@ -21,7 +33,7 @@ export default function ArtGallery() {
           <div className="vh-100">
             <BannarText text="... & color your mind!" />
             <div className="container">
-              <Gallery images={images} />
+              <Gallery images={images} onSelectImage={onSelectImage} />
             </div>
           </div>
         </>
