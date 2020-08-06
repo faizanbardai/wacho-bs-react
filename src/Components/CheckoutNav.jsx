@@ -8,7 +8,7 @@ export default function CheckoutNav(props) {
           props.setDisplay(true);
         }}
         type="button"
-        className="btn btn-outline-primary"
+        className="btn btn-outline-primary btn-block"
       >
         Checkout{" "}
         {Intl.NumberFormat("de-De", {
