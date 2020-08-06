@@ -99,8 +99,6 @@ const CheckoutPage = (props) => {
             </div>
             <PayPalButton
               createOrder={(data, actions) => {
-                console.log([].concat(props.artInCart, props.winesInCart));
-                console.log(props.totalPrice);
                 return actions.order.create({
                   purchase_units: [
                     {

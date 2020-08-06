@@ -26,14 +26,11 @@ export default function NewOrUpdateArt(props) {
     if (props.art) {
       //
     } else {
-      console.log("adding a new art");
       const data = new FormData();
       data.append("key", "f4249a89674c3ba51752e0c729919897");
       data.append("image", picture);
       const responseImage = await api_updateImage(data);
       const newArtImage = await responseImage.json();
-      console.log(newArtImage);
-      console.log(newArtImage.data.medium.url, newArtImage.data.thumb.url);
       const response = await api_add_art(
         {
           src: newArtImage.data.medium.url,
@@ -47,7 +44,6 @@ export default function NewOrUpdateArt(props) {
         localStorage.getItem("token")
       );
       const newArt = await response.json();
-      console.log(newArt);
       props.addNewArt(newArt);
       handleClose();
       setloading(false);
