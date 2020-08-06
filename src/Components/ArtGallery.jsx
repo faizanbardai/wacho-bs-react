@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import Gallery from "react-grid-gallery";
-import { api_loadActiveArt } from "../APIs";
 import BannarText from "./BannarText";
+import { addArtToCart, removeArtFromCart } from "../actions";
 
-export default function ArtGallery() {
+const mapStateToProps = (state) => {
+  return { arts: state.products.arts };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  addArtToCart: (art) => dispatch(addArtToCart(art)),
+  removeArtFromCart: (art) => dispatch(removeArtFromCart(art)),
+});
+
+const ArtGallery = (props) => {
   const [images, setImages] = useState();
   useEffect(() => {
     const apiCall = async () => {
-      let response = await api_loadActiveArt();
-      response = await response.json();
-      setImages(response);
+      setImages(props.arts);
     };
     apiCall();
-  }, []);
+  }, [props.arts]);
 
   const onSelectImage = (index, image) => {
     const images2 = images.slice();
@@ -21,8 +29,8 @@ export default function ArtGallery() {
       img.isSelected = !img.isSelected;
     } else {
       img.isSelected = true;
-      console.log(img._id);
     }
+    img.isSelected ? props.addArtToCart(img) : props.removeArtFromCart(img);
     setImages(images2);
   };
 
@@ -40,4 +48,6 @@ export default function ArtGallery() {
       )}
     </div>
   );
-}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArtGallery);

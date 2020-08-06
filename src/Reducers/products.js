@@ -4,7 +4,10 @@ export default (state = {}, action) => {
   switch (action.type) {
     case "LOAD_PRODUCTS":
       return {
-        productsFromServer: action.payload,
+        ...state,
+        productsFromServer: action.payload.wines,
+        arts: action.payload.arts,
+        amountToCharge: 0,
         fetchInProgress: false,
         showProductToast: false,
       };
@@ -19,7 +22,7 @@ export default (state = {}, action) => {
       return {
         ...state,
         productsFromServer: products,
-        amountToCharge: parseFloat(value).toFixed(2),
+        amountToCharge: value,
         showProductToast: true,
       };
     case "DECREASE_QTY":
@@ -33,7 +36,7 @@ export default (state = {}, action) => {
       return {
         ...state,
         productsFromServer: products,
-        amountToCharge: parseFloat(value).toFixed(2),
+        amountToCharge: value,
         showProductToast: true,
       };
     case "HIDE_PRODUCT_TOAST":

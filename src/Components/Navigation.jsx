@@ -17,7 +17,7 @@ export default function Navigation() {
       expanded={navExpanded}
     >
       <Link to="/">
-        <Navbar.Brand>Wines N' Colors</Navbar.Brand>
+        <Navbar.Brand>Wines N'Colors</Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

@@ -1,5 +1,5 @@
 const baseURL = process.env.REACT_APP_BASE_URL;
-export const api_loadActiveProducts = async () => {
+export const api_loadActiveWines = async () => {
   return await fetch(baseURL + "/products?active=1");
 };
 export const api_login = async (body) => {
@@ -81,10 +81,12 @@ export const api_getPurchases = async (token) => {
     },
   });
 };
+export const api_loadAllArt = async () => {
+  return await fetch(baseURL + "/art");
+};
 export const api_loadActiveArt = async () => {
   return await fetch(baseURL + "/art?active=1");
 };
-
 export const api_add_art = async (art, token) => {
   return await fetch(baseURL + "/art", {
     method: "POST",

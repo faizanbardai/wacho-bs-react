@@ -11,7 +11,6 @@ import {
   Tooltip,
   Modal,
 } from "react-bootstrap";
-import Checkout from "./Checkout";
 import Loader from "react-loader-spinner";
 import { increaseQty, decreaseQty, loadProducts } from "../actions";
 import ProductToast from "./ProductToast";
@@ -21,7 +20,6 @@ const mapStateToProps = (state) => {
   return {
     products: state.products.productsFromServer,
     fetchInProgress: state.products.fetchInProgress,
-    amountToCharge: state.products.amountToCharge,
   };
 };
 const mapDispatchToProps = (dispatch) => ({
@@ -59,13 +57,7 @@ class Products extends Component {
   render() {
     const { selectedProduct, propsForToast } = this.state;
 
-    const {
-      increaseQty,
-      decreaseQty,
-      products,
-      fetchInProgress,
-      amountToCharge,
-    } = this.props;
+    const { increaseQty, decreaseQty, products, fetchInProgress } = this.props;
     return (
       <div id="wines">
         <BannarText text="Be smart, just drink the best and fuck the rest!" />
@@ -220,7 +212,6 @@ class Products extends Component {
                     <hr />
                   </div>
                 ))}
-              {amountToCharge > 0 && <Checkout />}
             </div>
           </section>
         ) : (
