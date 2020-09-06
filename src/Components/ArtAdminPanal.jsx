@@ -16,6 +16,13 @@ export default function ArtAdminPanal(props) {
   const addNewArt = (newArt) => {
     setGallery([...gallery, newArt]);
   };
+  const updateArt = (art) => {
+    const newGallery = gallery.map((x) => {
+      return x._id === art._id ? art : x;
+    });
+    console.log(newGallery);
+    setGallery(newGallery);
+  };
 
   return (
     <Container fluid className="my-2">
@@ -39,6 +46,7 @@ export default function ArtAdminPanal(props) {
             <th scope="col">Width</th>
             <th scope="col">Price (€)</th>
             <th scope="col">Sold?</th>
+            <th scope="col">Update</th>
           </tr>
         </thead>
         <tbody>
@@ -56,6 +64,9 @@ export default function ArtAdminPanal(props) {
                 }).format(art.price)}
               </td>
               <td>{art.active ? "No" : "Yes"}</td>
+              <td>
+                <NewOrUpdateArt art={art} updateArt={updateArt} />
+              </td>
             </tr>
           ))}
         </tbody>

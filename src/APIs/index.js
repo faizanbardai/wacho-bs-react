@@ -97,3 +97,13 @@ export const api_add_art = async (art, token) => {
     body: JSON.stringify(art),
   });
 };
+export const api_update_art = async (id, body, token) => {
+  return await fetch(baseURL + "/art?id=" +id, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+    body: JSON.stringify(body),
+  });
+}
