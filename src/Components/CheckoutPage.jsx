@@ -45,7 +45,7 @@ const CheckoutPage = (props) => {
                     <tr key={art._id}>
                       <th scope="row">{index + 1}</th>
                       <td>{art.caption}</td>
-                      <td>{art.tags[0].value}</td>
+                      <td>{art.artist}</td>
                       <td>
                         {Intl.NumberFormat("de-De", {
                           style: "currency",

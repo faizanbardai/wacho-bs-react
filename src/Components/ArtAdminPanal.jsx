@@ -45,7 +45,7 @@ export default function ArtAdminPanal(props) {
           {gallery.map((art, index) => (
             <tr key={art._id}>
               <th scope="row">{index + 1}</th>
-              <td>{art.tags[0].value}</td>
+              <td>{art.artist}</td>
               <td>{art.caption}</td>
               <td className="text-right">{art.thumbnailHeight}</td>
               <td className="text-right">{art.thumbnailWidth}</td>

@@ -38,7 +38,7 @@ export default function NewOrUpdateArt(props) {
           thumbnailWidth,
           thumbnailHeight,
           caption: title,
-          tags: { value: artist, title: "artist" },
+          artist: artist,
           price,
         },
         localStorage.getItem("token")

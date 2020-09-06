@@ -39,7 +39,7 @@ const Checkout2 = (props) => {
           return {
             name: art.caption,
             sku: "art-" + art._id,
-            description: art.tags[0].value,
+            description: art.artist,
             unit_amount: {
               value: art.price,
               currency_code: "EUR",
