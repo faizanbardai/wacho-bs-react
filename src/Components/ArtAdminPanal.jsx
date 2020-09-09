@@ -20,7 +20,6 @@ export default function ArtAdminPanal(props) {
     const newGallery = gallery.map((x) => {
       return x._id === art._id ? art : x;
     });
-    console.log(newGallery);
     setGallery(newGallery);
   };
 
